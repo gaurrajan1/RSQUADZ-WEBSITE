@@ -1,0 +1,2001 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RSquadz — Your Global Procurement Partner</title>
+  <meta name="description" content="Global Sourcing, Verified Suppliers, Seamless Delivery. Component-level procurement and door-to-door logistics for Indian OEMs.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-base: #0A0D1A;
+      --bg-surface: #10162F;
+      --bg-card: rgba(22, 31, 66, 0.72);
+      --border-card: rgba(255, 255, 255, 0.08);
+      --border-focus: #D4AF37;
+
+      --navy-900: #060913;
+      --navy-800: #0C1226;
+      --navy-700: #141D3B;
+      --navy-600: #1D2A54;
+
+      --accent-gold: #E5B93B;
+      --accent-gold-hover: #F3C954;
+      --accent-gold-subtle: rgba(229, 185, 59, 0.12);
+      --accent-cyan: #38BDF8;
+
+      --text-white: #FFFFFF;
+      --text-primary: #F1F5F9;
+      --text-secondary: #94A3B8;
+      --text-muted: #64748B;
+
+      --font-display: 'Space Grotesk', -apple-system, sans-serif;
+      --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
+
+      --radius-sm: 6px;
+      --radius-md: 10px;
+      --radius-lg: 16px;
+      --radius-pill: 9999px;
+
+      --max-w: 1240px;
+      --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      background-color: var(--bg-base);
+      color: var(--text-primary);
+      font-family: var(--font-body);
+      line-height: 1.6;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    h1, h2, h3, h4 { font-family: var(--font-display); color: var(--text-white); font-weight: 700; line-height: 1.18; }
+    p { color: var(--text-secondary); }
+    a { color: inherit; text-decoration: none; transition: var(--transition); }
+    button { font-family: var(--font-body); cursor: pointer; border: none; outline: none; transition: var(--transition); }
+
+    /* Accessible focus ring for keyboard users */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    select:focus-visible,
+    textarea:focus-visible {
+      outline: 2px solid var(--accent-gold);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 28px; }
+    .section-gap { padding: 110px 0; position: relative; }
+
+    /* Section divider accent — used sparingly at key boundaries */
+    .gold-divider {
+      width: 64px;
+      height: 3px;
+      border-radius: var(--radius-pill);
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      margin: 0 auto 22px;
+    }
+
+    /* Background Grids & Blobs */
+    .bg-grid-overlay {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+    .glow-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(120px);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* Decorative concentric-ring motif (CSS only, aria-hidden) */
+    .ring-motif {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(229, 185, 59, 0.10);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .ring-motif::before,
+    .ring-motif::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(229, 185, 59, 0.07);
+    }
+    .ring-motif::before { inset: 40px; }
+    .ring-motif::after { inset: 80px; border-color: rgba(56, 189, 248, 0.06); }
+
+    /* Buttons */
+    .btn-gold {
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #B88E18 100%);
+      color: #060810;
+      font-weight: 700;
+      font-size: 0.95rem;
+      padding: 13px 26px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 20px rgba(229, 185, 59, 0.28);
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-gold::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 60%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(255,255,255,0.45), transparent);
+      transform: skewX(-20deg);
+      transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .btn-gold:hover {
+      background: linear-gradient(135deg, var(--accent-gold-hover) 0%, #CA9C1E 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 26px rgba(229, 185, 59, 0.42);
+    }
+    .btn-gold:hover::after { left: 130%; }
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-card);
+      color: var(--text-white);
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 13px 24px;
+      border-radius: var(--radius-sm);
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-outline:hover {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: rgba(229, 185, 59, 0.4);
+      transform: translateY(-2px);
+      box-shadow: 0 0 0 1px rgba(229, 185, 59, 0.15);
+    }
+
+    /* Top Banner / Trust Strip */
+    .trust-strip {
+      background: rgba(20, 29, 59, 0.65);
+      border-bottom: 1px solid var(--border-card);
+      font-size: 0.8rem;
+      padding: 9px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--text-secondary);
+    }
+    .trust-strip .wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .trust-strip-items {
+      display: flex;
+      gap: 22px;
+    }
+    .trust-strip-items span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .trust-strip-items span::before {
+      content: "•";
+      color: var(--accent-gold);
+    }
+
+    /* Navigation */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(10, 13, 26, 0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-card);
+      transition: var(--transition);
+    }
+    header.scrolled {
+      background: rgba(6, 9, 19, 0.96);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+      border-bottom-color: rgba(229, 185, 59, 0.18);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 76px;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text-white);
+    }
+    .brand-badge {
+      font-size: 0.65rem;
+      font-weight: 800;
+      background: var(--accent-gold-subtle);
+      border: 1px solid var(--accent-gold);
+      color: var(--accent-gold);
+      padding: 3px 7px;
+      border-radius: var(--radius-sm);
+      letter-spacing: 0.05em;
+    }
+    nav.desktop-menu {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+    }
+    nav.desktop-menu a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      position: relative;
+    }
+    nav.desktop-menu a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -6px;
+      width: 0;
+      height: 2px;
+      background: var(--accent-gold);
+      transition: width 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    nav.desktop-menu a:hover, nav.desktop-menu a.active {
+      color: var(--text-white);
+    }
+    nav.desktop-menu a:hover::after { width: 100%; }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .nav-toggle-btn {
+      display: none;
+      background: transparent;
+      color: var(--text-white);
+      width: 44px;
+      height: 44px;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+    }
+    .nav-toggle-btn .icon-close { display: none; }
+    .nav-toggle-btn[aria-expanded="true"] .icon-menu { display: none; }
+    .nav-toggle-btn[aria-expanded="true"] .icon-close { display: block; }
+
+    /* Master Hero */
+    .hero-section {
+      padding: 90px 0 100px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-layout {
+      display: grid;
+      grid-template-columns: 1.15fr 0.85fr;
+      gap: 60px;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    .hero-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      font-family: var(--font-display);
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      margin-bottom: 18px;
+    }
+    .hero-kicker .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      box-shadow: 0 0 0 4px rgba(229, 185, 59, 0.18);
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 14px;
+      border-radius: var(--radius-pill);
+      background: var(--accent-gold-subtle);
+      border: 1px solid rgba(229, 185, 59, 0.3);
+      color: var(--accent-gold);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-size: clamp(2.5rem, 4.4vw, 4rem);
+      letter-spacing: -0.03em;
+      margin-bottom: 20px;
+    }
+    .hero-title span {
+      background: linear-gradient(115deg, #FFFFFF 20%, var(--accent-gold) 50%, #FFFFFF 80%);
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: transparent;
+      animation: goldShimmer 6s linear infinite;
+    }
+    @keyframes goldShimmer {
+      0% { background-position: 200% center; }
+      100% { background-position: -20% center; }
+    }
+    .hero-sub {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      line-height: 1.65;
+      margin-bottom: 30px;
+      max-width: 52ch;
+    }
+    .hero-cta-group {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 30px;
+    }
+
+    /* Hero credential row */
+    .hero-credentials {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .cred-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-card);
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+    }
+    .cred-pill svg { color: var(--accent-gold); flex-shrink: 0; }
+
+    /* Interactive Model Display (Source | Verify | Deliver) */
+    .hero-model-card {
+      background: linear-gradient(180deg, rgba(20, 29, 61, 0.8) 0%, rgba(12, 17, 36, 0.95) 100%);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 34px;
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.45);
+      position: relative;
+    }
+    .model-header {
+      border-bottom: 1px solid var(--border-card);
+      padding-bottom: 18px;
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .model-header h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+    .model-badge {
+      font-size: 0.72rem;
+      padding: 4px 10px;
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: var(--accent-cyan);
+      border-radius: var(--radius-pill);
+      font-weight: 600;
+    }
+    .model-pills {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+    }
+    /* Animated connecting line between the three steps */
+    .model-pills::before {
+      content: "";
+      position: absolute;
+      left: 26px;
+      top: 30px;
+      bottom: 30px;
+      width: 2px;
+      background: linear-gradient(180deg, var(--accent-gold), rgba(56,189,248,0.5));
+      opacity: 0.35;
+      z-index: 0;
+    }
+    .model-pills::after {
+      content: "";
+      position: absolute;
+      left: 25px;
+      top: 30px;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      box-shadow: 0 0 8px 2px rgba(229,185,59,0.6);
+      transform: translateX(-1px);
+      animation: flowDot 3.6s ease-in-out infinite;
+      z-index: 1;
+    }
+    @keyframes flowDot {
+      0% { top: 30px; opacity: 0; }
+      15% { opacity: 1; }
+      85% { opacity: 1; }
+      100% { top: calc(100% - 34px); opacity: 0; }
+    }
+    .model-step-box {
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      transition: var(--transition);
+      position: relative;
+      z-index: 2;
+    }
+    .model-step-box:hover {
+      background: rgba(255, 255, 255, 0.05);
+      border-color: rgba(229, 185, 59, 0.4);
+      transform: translateX(4px);
+      box-shadow: 0 0 0 1px rgba(229, 185, 59, 0.15);
+    }
+    .step-tag {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.78rem;
+      color: var(--accent-gold);
+      background: var(--accent-gold-subtle);
+      padding: 4px 10px;
+      border-radius: var(--radius-sm);
+      margin-top: 2px;
+      white-space: nowrap;
+    }
+    .step-content h5 { font-size: 1rem; color: var(--text-white); margin-bottom: 4px; }
+    .step-content p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.45; }
+
+    /* Animated Stat Strip */
+    .stat-strip-section {
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+      background: linear-gradient(180deg, rgba(20, 29, 61, 0.45), rgba(6, 9, 19, 0.6));
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      padding: 46px 0;
+      position: relative;
+      z-index: 2;
+    }
+    .stat-item {
+      text-align: center;
+      padding: 8px 12px;
+      position: relative;
+    }
+    .stat-item:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 46px;
+      width: 1px;
+      background: var(--border-card);
+    }
+    .stat-num {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(2.2rem, 3.4vw, 3rem);
+      color: var(--accent-gold);
+      line-height: 1;
+      letter-spacing: -0.02em;
+      display: inline-flex;
+      align-items: baseline;
+    }
+    .stat-num .suffix { font-size: 0.62em; margin-left: 2px; }
+    .stat-label {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      margin-top: 10px;
+      font-weight: 500;
+    }
+
+    /* Problem Section */
+    .problem-section {
+      background: var(--navy-900);
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+    }
+    .section-headline-center {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 60px;
+    }
+    .section-headline-center h2 { font-size: clamp(2rem, 3.2vw, 2.7rem); margin-bottom: 16px; }
+    .section-headline-center p { font-size: 1.05rem; }
+
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .problem-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      position: relative;
+      transition: var(--transition);
+    }
+    .problem-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(229, 185, 59, 0.28);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(229, 185, 59, 0.12);
+    }
+    .problem-icon {
+      width: 42px;
+      height: 42px;
+      background: rgba(239, 68, 68, 0.12);
+      border: 1px solid rgba(239, 68, 68, 0.3);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #EF4444;
+      margin-bottom: 18px;
+    }
+    .problem-card h4 { font-size: 1.05rem; margin-bottom: 8px; color: var(--text-white); }
+    .problem-card p { font-size: 0.88rem; line-height: 1.55; }
+    .problem-callout {
+      margin-top: 48px;
+      text-align: center;
+      padding: 20px 28px;
+      background: var(--accent-gold-subtle);
+      border: 1px solid rgba(229, 185, 59, 0.3);
+      border-radius: var(--radius-md);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--accent-gold);
+    }
+
+    /* Core Services (01 to 04) */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+    }
+    .service-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+      transition: var(--transition);
+      overflow: hidden;
+    }
+    .service-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(600px circle at 100% 0%, rgba(229,185,59,0.08), transparent 45%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .service-card:hover {
+      border-color: rgba(229, 185, 59, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 18px 40px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(229, 185, 59, 0.12);
+    }
+    .service-card:hover::before { opacity: 1; }
+    .service-num {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--accent-gold);
+      opacity: 0.85;
+      margin-bottom: 16px;
+    }
+    .service-card h3 { font-size: 1.45rem; margin-bottom: 14px; }
+    .service-card p { font-size: 0.94rem; margin-bottom: 24px; }
+    .service-deliverables {
+      list-style: none;
+      border-top: 1px solid var(--border-card);
+      padding-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .service-deliverables li {
+      font-size: 0.82rem;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-card);
+      color: var(--text-primary);
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+      transition: var(--transition);
+    }
+    .service-card:hover .service-deliverables li {
+      border-color: rgba(229, 185, 59, 0.25);
+    }
+
+    /* 9-Step Process Visualizer */
+    .process-container {
+      margin-top: 50px;
+      position: relative;
+    }
+    .process-timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+    .process-box {
+      background: var(--navy-800);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 22px;
+      position: relative;
+      transition: var(--transition);
+    }
+    .process-box:hover {
+      border-color: var(--accent-gold);
+      background: var(--navy-700);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.4);
+    }
+    .process-step-idx {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.85rem;
+      color: var(--accent-gold);
+      margin-bottom: 8px;
+    }
+    .process-box h4 { font-size: 1.05rem; margin-bottom: 6px; }
+    .process-box p { font-size: 0.84rem; }
+
+    /* Industries We Serve */
+    .industry-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+    .industry-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 30px 24px;
+      text-align: left;
+      transition: var(--transition);
+    }
+    .industry-card:hover {
+      border-color: var(--accent-cyan);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(56, 189, 248, 0.15);
+    }
+    .ind-badge {
+      font-size: 0.72rem;
+      color: var(--accent-cyan);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-weight: 700;
+      margin-bottom: 12px;
+      display: block;
+    }
+    .industry-card h4 { font-size: 1.15rem; margin-bottom: 10px; }
+    .industry-card p { font-size: 0.86rem; line-height: 1.5; }
+
+    /* Two-Sided Ecosystem (Buyers & Suppliers) */
+    .ecosystem-section {
+      background: linear-gradient(180deg, var(--navy-900) 0%, var(--bg-base) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    .eco-container {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 40px;
+      position: relative;
+      z-index: 2;
+    }
+    .eco-tab-box {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+    .form-group-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+    .form-control {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .form-control label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+    }
+    .form-control input,
+    .form-control select,
+    .form-control textarea {
+      background: var(--navy-800);
+      border: 1px solid var(--border-card);
+      color: var(--text-white);
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-size: 0.9rem;
+      font-family: var(--font-body);
+      outline: none;
+      transition: var(--transition);
+    }
+    .form-control input:focus,
+    .form-control select:focus,
+    .form-control textarea:focus {
+      border-color: var(--accent-gold);
+      background: var(--navy-700);
+      box-shadow: 0 0 0 3px rgba(229, 185, 59, 0.14);
+    }
+    .file-dropzone {
+      border: 2px dashed var(--border-card);
+      border-radius: var(--radius-sm);
+      padding: 24px;
+      text-align: center;
+      cursor: pointer;
+      background: var(--navy-800);
+      margin-bottom: 20px;
+      transition: var(--transition);
+    }
+    .file-dropzone:hover {
+      border-color: var(--accent-gold);
+      background: rgba(229, 185, 59, 0.03);
+    }
+    .dropzone-text {
+      font-size: 0.86rem;
+      color: var(--text-secondary);
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      justify-content: center;
+    }
+    .dropzone-text svg { color: var(--accent-gold); flex-shrink: 0; }
+    .dropzone-sub { font-size: 0.74rem; color: var(--text-muted); margin-top: 4px; }
+
+    /* Supplier Network Funnel */
+    .supplier-box {
+      background: linear-gradient(145deg, rgba(20, 29, 61, 0.9) 0%, rgba(8, 12, 28, 0.9) 100%);
+      border: 1px solid rgba(229, 185, 59, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .supplier-steps-list {
+      list-style: none;
+      margin: 28px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .supplier-steps-list li {
+      display: flex;
+      gap: 14px;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+    }
+    .supplier-steps-list li span.badge {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--accent-gold);
+      color: #060913;
+      font-weight: 800;
+      font-size: 0.75rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Why RSquadz (6 Pillars) */
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .pillar-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      transition: var(--transition);
+    }
+    .pillar-card:hover {
+      border-color: var(--border-focus);
+      transform: translateY(-4px);
+      box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(229, 185, 59, 0.12);
+    }
+    .pillar-card h4 { font-size: 1.15rem; margin-bottom: 10px; color: var(--text-white); }
+    .pillar-card p { font-size: 0.9rem; line-height: 1.6; }
+
+    /* Footer */
+    footer {
+      background: var(--navy-900);
+      border-top: 1px solid var(--border-card);
+      padding: 80px 0 40px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 60px;
+    }
+    .footer-col h5 {
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 20px;
+      color: var(--text-white);
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 12px; }
+    .footer-col ul a { font-size: 0.88rem; color: var(--text-secondary); overflow-wrap: anywhere; word-break: break-word; }
+    .footer-col ul a:hover { color: var(--accent-gold); }
+    .footer-bottom {
+      border-top: 1px solid var(--border-card);
+      padding-top: 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+    }
+
+    /* Modals & Interactive Alerts */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(4, 7, 18, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-card {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      max-width: 600px;
+      width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 36px;
+      position: relative;
+      animation: modalIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    @keyframes modalIn {
+      from { opacity: 0; transform: translateY(16px) scale(0.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+    .modal-close {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      background: transparent;
+      color: var(--text-muted);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius-sm);
+    }
+    .modal-close:hover { color: var(--text-white); background: rgba(255,255,255,0.06); }
+
+    /* Scroll reveal */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1), transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+      will-change: opacity, transform;
+    }
+    .reveal.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    /* Stagger children */
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.38s cubic-bezier(0.16, 1, 0.3, 1), transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-stagger.is-visible > * {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger.is-visible > *:nth-child(2) { transition-delay: 0.06s; }
+    .reveal-stagger.is-visible > *:nth-child(3) { transition-delay: 0.12s; }
+    .reveal-stagger.is-visible > *:nth-child(4) { transition-delay: 0.18s; }
+    .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.24s; }
+    .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.30s; }
+
+    /* Floating WhatsApp / contact button */
+    .float-contact {
+      position: fixed;
+      bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+      right: calc(24px + env(safe-area-inset-right, 0px));
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--accent-gold) 0%, #B88E18 100%);
+      color: #060810;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 0;
+      box-shadow: 0 8px 26px rgba(229, 185, 59, 0.4);
+      z-index: 900;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      contain: layout paint;
+      transform: translateY(16px) scale(0.9);
+      transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), visibility 0.3s;
+    }
+    .float-contact.visible {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateY(0) scale(1);
+    }
+    .float-contact:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 32px rgba(229, 185, 59, 0.55);
+    }
+    .float-contact svg { display: block; width: 28px; height: 28px; }
+
+    /* Responsive Breakdown */
+    @media (max-width: 1024px) {
+      .hero-layout { grid-template-columns: 1fr; gap: 48px; }
+      /* When the hero stacks, keep the model card from stretching full width */
+      .hero-model-card { max-width: 560px; width: 100%; margin: 0 auto; }
+      .stat-strip { grid-template-columns: repeat(2, 1fr); gap: 30px 20px; }
+      /* In a 2-col layout only the middle (2nd) divider should be removed */
+      .stat-item::after { display: none; }
+      .stat-item:nth-child(odd)::after { display: block; }
+      .problem-grid { grid-template-columns: repeat(2, 1fr); }
+      .industry-grid { grid-template-columns: repeat(2, 1fr); }
+      .eco-container { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: repeat(2, 1fr); }
+      .process-timeline { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 768px) {
+      .nav-toggle-btn { display: flex; }
+
+      /* Compact header CTA on mobile (scoped to header only) */
+      .nav-actions { gap: 10px; }
+      .nav-actions .btn-gold {
+        padding: 9px 16px;
+        font-size: 0.85rem;
+      }
+
+      /* Mobile nav: full-width panel below the 76px header, driven by a class (no inline styles) */
+      nav.desktop-menu {
+        display: none;
+        position: absolute;
+        top: 76px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 12px 20px calc(16px + env(safe-area-inset-bottom, 0px));
+        background: rgba(6, 9, 19, 0.98);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid rgba(229, 185, 59, 0.18);
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+        max-height: calc(100vh - 76px);
+        overflow-y: auto;
+      }
+      nav.desktop-menu.mobile-open { display: flex; }
+      nav.desktop-menu a {
+        font-size: 1rem;
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        padding: 4px 4px;
+        border-bottom: 1px solid var(--border-card);
+      }
+      nav.desktop-menu a:last-child { border-bottom: none; }
+      /* Disable the desktop underline animation inside the mobile panel */
+      nav.desktop-menu a::after { display: none; }
+
+      .trust-strip-items { display: none; }
+      .trust-strip .wrap { justify-content: center; text-align: center; }
+      .services-grid { grid-template-columns: 1fr; }
+      .problem-grid { grid-template-columns: 1fr; }
+      .industry-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
+      .process-timeline { grid-template-columns: 1fr; }
+      .form-group-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .stat-strip { grid-template-columns: repeat(2, 1fr); }
+      .stat-item::after { display: none !important; }
+      .float-contact { bottom: calc(18px + env(safe-area-inset-bottom, 0px)); right: calc(18px + env(safe-area-inset-right, 0px)); }
+    }
+
+    /* Small phones */
+    @media (max-width: 480px) {
+      .wrap { padding: 0 18px; }
+      .section-gap { padding: 68px 0; }
+
+      .hero-section { padding: 56px 0 60px; }
+      .hero-title { font-size: clamp(1.95rem, 8.5vw, 2.6rem); }
+      .hero-sub { font-size: 1.02rem; }
+      .hero-cta-group { gap: 12px; }
+      .hero-cta-group .btn-gold,
+      .hero-cta-group .btn-outline { width: 100%; justify-content: center; }
+
+      /* Header CTA: a touch more compact + smaller brand so brand + CTA + hamburger fit one row */
+      .nav-actions .btn-gold {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+      }
+      .brand-logo { font-size: 1.15rem; }
+
+      /* Ease padding on large cards / forms so nothing feels cramped */
+      .hero-model-card,
+      .eco-tab-box,
+      .supplier-box,
+      .service-card,
+      .pillar-card,
+      .modal-card { padding: 24px; }
+
+      /* Stat strip: 2x2 grid, no dividers, comfortable row gap */
+      .stat-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 28px 16px;
+        padding: 36px 0;
+      }
+      .stat-item::after { display: none !important; }
+      .stat-num { font-size: clamp(1.9rem, 9vw, 2.4rem); }
+
+      .section-headline-center { margin-bottom: 40px; }
+      .problem-callout { padding: 18px 20px; font-size: 0.98rem; }
+
+      /* Constrain decorative motifs so they can't force horizontal scroll */
+      .ring-motif { max-width: 320px; max-height: 320px; }
+      .glow-orb { max-width: 340px; max-height: 340px; }
+
+      .footer-bottom { flex-direction: column; align-items: flex-start; }
+    }
+
+    /* Extra-small phones (e.g. 360px) */
+    @media (max-width: 360px) {
+      .hero-title { font-size: clamp(1.85rem, 9.5vw, 2.2rem); }
+      .stat-strip { grid-template-columns: 1fr; }
+    }
+
+    /* Short / landscape viewports: don't waste the fold on tall padding */
+    @media (max-height: 560px) and (orientation: landscape) {
+      .hero-section { padding: 40px 0 44px; }
+      .section-gap { padding: 52px 0; }
+      nav.desktop-menu { max-height: calc(100vh - 76px); }
+    }
+
+    /* Reduced motion: disable all new animations & reveals */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after {
+        animation-duration: 0.001ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.001ms !important;
+      }
+      .hero-title span { animation: none; background-position: 0 center; }
+      .model-pills::after { display: none; }
+      .reveal, .reveal-stagger > * { opacity: 1 !important; transform: none !important; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Orbs -->
+  <div class="glow-orb" style="width: 500px; height: 500px; background: rgba(229,185,59,0.07); top: 5%; left: -100px;" aria-hidden="true"></div>
+  <div class="glow-orb" style="width: 600px; height: 600px; background: rgba(56,189,248,0.06); top: 35%; right: -150px;" aria-hidden="true"></div>
+
+  <!-- Trust Strip -->
+  <div class="trust-strip">
+    <div class="wrap">
+      <div>Enterprise B2B Procurement &amp; Logistics Infrastructure</div>
+      <div class="trust-strip-items">
+        <span>Supplier Verification</span>
+        <span>Global Sourcing</span>
+        <span>Door-to-Door Delivery</span>
+        <span>Customs Clearance</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header / Navigation -->
+  <header id="siteNav">
+    <div class="wrap nav-inner">
+      <a href="#" class="brand-logo">
+        <span>RSQUADZ</span>
+      </a>
+
+      <nav class="desktop-menu" id="primaryMenu">
+        <a href="#solutions">Solutions</a>
+        <a href="#process">How It Works</a>
+        <a href="#industries">Industries</a>
+        <a href="#suppliers">Supplier Network</a>
+        <a href="#why-rsquadz">Why RSquadz</a>
+        <a href="#about">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn-gold" onclick="openRFQModal()">Request a Quote</button>
+        <button class="nav-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Menu" aria-expanded="false" aria-controls="primaryMenu">
+          <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+          <svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO SECTION -->
+    <section class="hero-section">
+      <div class="bg-grid-overlay" aria-hidden="true"></div>
+      <div class="ring-motif" style="width: 460px; height: 460px; top: -140px; right: -120px;" aria-hidden="true"></div>
+      <div class="wrap hero-layout">
+        <div>
+          <div class="hero-kicker"><span class="dot"></span>Global procurement, engineered end to end</div>
+          <h1 class="hero-title">
+            Source globally.<br>
+            Verify confidently.<br>
+            <span>Deliver seamlessly.</span>
+          </h1>
+          <p class="hero-sub">
+            One accountable channel from the factory floor to your dock. We find the real manufacturer, verify who you're buying from, and move it door to door — so your build never waits on a broker or a customs hold.
+          </p>
+          <div class="hero-cta-group">
+            <button class="btn-gold" onclick="openRFQModal()">
+              <span>Request a Quote</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            </button>
+            <a href="#rfq-box" class="btn-outline">Talk to Procurement Team</a>
+          </div>
+          <div class="hero-credentials" aria-label="Key credentials">
+            <span class="cred-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Direct manufacturers
+            </span>
+            <span class="cred-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Desk-verified suppliers
+            </span>
+            <span class="cred-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              In-house customs
+            </span>
+            <span class="cred-pill">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              One accountable channel
+            </span>
+          </div>
+        </div>
+
+        <!-- The RSquadz Model (Source | Verify | Deliver) -->
+        <div class="hero-model-card">
+          <div class="model-header">
+            <h4>The RSquadz Operating Model</h4>
+            <span class="model-badge">Single Channel Execution</span>
+          </div>
+          <div class="model-pills">
+            <div class="model-step-box">
+              <span class="step-tag">01 / SOURCE</span>
+              <div class="step-content">
+                <h5>Global Supplier Discovery</h5>
+                <p>Direct manufacturer identification and BOM-level technical matching across key global industrial hubs.</p>
+              </div>
+            </div>
+            <div class="model-step-box">
+              <span class="step-tag">02 / VERIFY</span>
+              <div class="step-content">
+                <h5>Supplier &amp; Product Verification</h5>
+                <p>Rigorous desk audits, business legitimacy, compliance validation, and sample quality checks before ordering.</p>
+              </div>
+            </div>
+            <div class="model-step-box">
+              <span class="step-tag">03 / DELIVER</span>
+              <div class="step-content">
+                <h5>Door-to-Door Supply Chain</h5>
+                <p>Origin pickup, air/sea freight, in-house customs clearance, and inland trucking direct to your shop floor.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANIMATED STAT STRIP -->
+    <section class="stat-strip-section" aria-label="RSquadz at a glance">
+      <div class="ring-motif" style="width: 380px; height: 380px; bottom: -180px; left: -100px; opacity: 0.6;" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="stat-strip" id="statStrip">
+          <div class="stat-item">
+            <div class="stat-num"><span class="stat-count" data-target="12">0</span><span class="suffix">+</span></div>
+            <div class="stat-label">Global Sourcing Hubs</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num"><span class="stat-count" data-target="4">0</span></div>
+            <div class="stat-label">Core Industries Served</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num"><span class="stat-count" data-target="9">0</span><span class="suffix">-Stage</span></div>
+            <div class="stat-label">Verified Workflow</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num"><span class="stat-count" data-target="1">0</span></div>
+            <div class="stat-label">Accountable Channel</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- THE PROBLEM WE SOLVE -->
+    <section class="section-gap problem-section" id="problem">
+      <div class="wrap">
+        <div class="section-headline-center reveal">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h2>Importing breaks in predictable places.</h2>
+          <p>Every unverified link between you and a factory is a place your order can stall, drift out of spec, or disappear. We close each one.</p>
+        </div>
+
+        <div class="problem-grid reveal-stagger">
+          <div class="problem-card">
+            <div class="problem-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </div>
+            <h4>Unverified Factories</h4>
+            <p>Chat-window deals with brokers posing as the original manufacturer, with no proof of who actually makes the part.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </div>
+            <h4>Out-of-Spec Parts</h4>
+            <p>Components that miss tolerance and leave you with zero recourse once a cross-border payment has cleared.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </div>
+            <h4>Customs Impasses</h4>
+            <p>Mismatched HS codes and missing paperwork that strand high-value freight at the port for weeks.</p>
+          </div>
+          <div class="problem-card">
+            <div class="problem-icon" aria-hidden="true">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+            </div>
+            <h4>Fragmented Logistics</h4>
+            <p>Chasing forwarders, clearing agents, and couriers separately, with no single party owning the outcome.</p>
+          </div>
+        </div>
+
+        <div class="problem-callout reveal">
+          One channel owns the entire chain — from verified supplier discovery to the final handover at your dock.
+        </div>
+      </div>
+    </section>
+
+    <!-- CORE SERVICES -->
+    <section class="section-gap" id="solutions">
+      <div class="wrap">
+        <div class="section-headline-center reveal">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h2>Procurement, engineered — not just forwarded.</h2>
+          <p>Four connected services built for aerospace, electronics, robotics, and precision engineering teams that can't afford a bad part.</p>
+        </div>
+
+        <div class="services-grid reveal-stagger">
+          <!-- 01 -->
+          <div class="service-card">
+            <div>
+              <div class="service-num">01</div>
+              <h3>Global Sourcing &amp; Procurement</h3>
+              <p>We find the genuine manufacturer that matches your exact spec, then run the negotiation, quote comparison, and sample procurement before you commit a rupee.</p>
+            </div>
+            <ul class="service-deliverables">
+              <li>Direct Manufacturer Search</li>
+              <li>BOM-Level Quotation</li>
+              <li>Landed-Cost Analysis</li>
+              <li>Sample Sourcing</li>
+            </ul>
+          </div>
+
+          <!-- 02 -->
+          <div class="service-card">
+            <div>
+              <div class="service-num">02</div>
+              <h3>Supplier Onboarding &amp; Verification</h3>
+              <p>Know exactly who you're buying from before you commit. Documentation review, compliance audits, and commercial credibility checks build a supply base you can trust.</p>
+            </div>
+            <ul class="service-deliverables">
+              <li>License Validation</li>
+              <li>QCI / DGCA Alignment</li>
+              <li>Quality Track Record</li>
+              <li>Sample Sign-off</li>
+            </ul>
+          </div>
+
+          <!-- 03 -->
+          <div class="service-card">
+            <div>
+              <div class="service-num">03</div>
+              <h3>Door-to-Door Procurement</h3>
+              <p>One workflow, one invoice, one point of accountability: origin pickup, multimodal shipping, compliance paperwork, duties, and safe transit to your site.</p>
+            </div>
+            <ul class="service-deliverables">
+              <li>Unified Invoicing</li>
+              <li>Consolidated Shipments</li>
+              <li>Single Point Accountability</li>
+            </ul>
+          </div>
+
+          <!-- 04 -->
+          <div class="service-card">
+            <div>
+              <div class="service-num">04</div>
+              <h3>Logistics Solutions</h3>
+              <p>Air freight when the deadline is tight, ocean freight when scale matters, expedited couriers, and vetted last-mile — routed for the right balance of speed and cost.</p>
+            </div>
+            <ul class="service-deliverables">
+              <li>Express Air Cargo</li>
+              <li>Ocean Freight (FCL/LCL)</li>
+              <li>In-house Customs Clearance</li>
+              <li>Inland Transport</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DOOR-TO-DOOR 9-STEP PROCESS FLOW -->
+    <section class="section-gap" style="background: var(--navy-900); position: relative; overflow: hidden;" id="process">
+      <div class="ring-motif" style="width: 420px; height: 420px; top: -150px; right: -140px; opacity: 0.7;" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="section-headline-center reveal">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h2>Nine stages. No surprises.</h2>
+          <p>A systematic, auditable sequence built to remove guesswork and shorten the time from requirement to your dock.</p>
+        </div>
+
+        <div class="process-timeline reveal-stagger">
+          <div class="process-box">
+            <div class="process-step-idx">STEP 01</div>
+            <h4>Requirement &amp; Review</h4>
+            <p>We read the drawing, not just the catalog number — parameters, BOMs, and delivery tolerances captured up front.</p>
+          </div>
+          <div class="process-box">
+            <div class="process-step-idx">STEP 02</div>
+            <h4>Supplier Identification</h4>
+            <p>Targeted discovery across proven industrial hubs like Shenzhen and Ningbo.</p>
+          </div>
+          <div class="process-box">
+            <div class="process-step-idx">STEP 03</div>
+            <h4>Quotation Comparison</h4>
+            <p>Commercial benchmarking based on true landed cost and production lead time.</p>
+          </div>
+          <div class="process-box">
+            <div class="process-step-idx">STEP 04</div>
+            <h4>Supplier Verification</h4>
+            <p>Rigorous vetting of corporate legitimacy, tax filings, and quality certs.</p>
+          </div>
+          <div class="process-box">
+            <div class="process-step-idx">STEP 05</div>
+            <h4>Purchase Execution</h4>
+            <p>Contract finalization with milestone-guarded international terms.</p>
+          </div>
+          <div class="process-box">
+            <div class="process-step-idx">STEP 06</div>
+            <h4>Factory Pickup</h4>
+            <p>Coordinated origin pickup and pre-dispatch export packaging checks.</p>
+          </div>
+          <div class="process-box">
+            <div class="process-step-idx">STEP 07</div>
+            <h4>International Freight</h4>
+            <p>Air or ocean routing selected for optimal balance of speed and cost.</p>
+          </div>
+          <div class="process-box">
+            <div class="process-step-idx">STEP 08</div>
+            <h4>Customs Clearance</h4>
+            <p>Accurate HS Code classification and direct in-house port clearance.</p>
+          </div>
+          <div class="process-box">
+            <div class="process-step-idx">STEP 09</div>
+            <h4>Final Facility Delivery</h4>
+            <p>Insured domestic transport and proof-of-delivery handover at your dock.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INDUSTRIES WE SERVE -->
+    <section class="section-gap" id="industries">
+      <div class="wrap">
+        <div class="section-headline-center reveal">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h2>Built for parts that can't fail.</h2>
+          <p>Component-level procurement depth for the mission-critical hardware you design and build.</p>
+        </div>
+
+        <div class="industry-grid reveal-stagger">
+          <div class="industry-card">
+            <span class="ind-badge">Mission Critical</span>
+            <h4>Aerospace &amp; Drones</h4>
+            <p>BLDC motors, ESCs, carbon composite frames, flight controllers, RF telemetry, and optronic payloads.</p>
+          </div>
+          <div class="industry-card">
+            <span class="ind-badge">Precision Tech</span>
+            <h4>Electronics &amp; Semiconductors</h4>
+            <p>Multilayer PCBs, microcontrollers, passive components, sensors, RF modules, and custom wiring harnesses.</p>
+          </div>
+          <div class="industry-card">
+            <span class="ind-badge">Automation</span>
+            <h4>Robotics &amp; Mechatronics</h4>
+            <p>Servo drives, planetary gearboxes, actuators, LiDAR modules, and precision machined components.</p>
+          </div>
+          <div class="industry-card">
+            <span class="ind-badge">Clean Energy</span>
+            <h4>Energy &amp; Battery Tech</h4>
+            <p>Prismatic &amp; cylindrical cells, custom BMS modules, thermal management materials, and power electronics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TWO-SIDED PLATFORM (BUYER RFQ & SUPPLIER NETWORK) -->
+    <section class="section-gap ecosystem-section" id="suppliers">
+      <div class="ring-motif" style="width: 400px; height: 400px; bottom: -160px; right: -120px;" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="eco-container">
+
+          <!-- Buyer RFQ Form -->
+          <div class="eco-tab-box reveal" id="rfq-box">
+            <h3 style="font-size: 1.45rem; margin-bottom: 6px;">Send us the part. We'll send back the plan.</h3>
+            <p style="font-size: 0.88rem; margin-bottom: 24px;">Share your requirement or BOM and get a landed-cost quotation from verified sources.</p>
+
+            <form id="rfqForm" onsubmit="handleFormSubmit(event, 'RFQ')">
+              <div class="form-group-grid">
+                <div class="form-control">
+                  <label>Product / Component Name</label>
+                  <input type="text" placeholder="e.g. 4014 Brushless Motor" required>
+                </div>
+                <div class="form-control">
+                  <label>Part Number / Spec</label>
+                  <input type="text" placeholder="e.g. KV380 Industrial">
+                </div>
+              </div>
+
+              <div class="form-group-grid">
+                <div class="form-control">
+                  <label>Target Quantity</label>
+                  <input type="text" placeholder="e.g. 500 units" required>
+                </div>
+                <div class="form-control">
+                  <label>Delivery Location</label>
+                  <input type="text" placeholder="City / Facility Pin" required>
+                </div>
+              </div>
+
+              <div class="form-control" style="margin-bottom: 16px;">
+                <label>Target Delivery Date</label>
+                <input type="date">
+              </div>
+
+              <div class="file-dropzone" onclick="document.getElementById('fileUploadInput').click()">
+                <input type="file" id="fileUploadInput" style="display: none;" onchange="updateFileLabel(this)">
+                <div class="dropzone-text" id="dropzoneLabel">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
+                  Click to attach BOM, Technical Drawing, or Datasheet
+                </div>
+                <div class="dropzone-sub">Supports PDF, XLSX, CSV, ZIP (Max 25MB)</div>
+              </div>
+
+              <div class="form-control" style="margin-bottom: 20px;">
+                <label>Technical Details / Instructions</label>
+                <textarea rows="3" placeholder="Provide tolerances, testing requirements, or preferred brand equivalent..."></textarea>
+              </div>
+
+              <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">
+                Submit Sourcing Requirement
+              </button>
+            </form>
+          </div>
+
+          <!-- Supplier Onboarding Funnel -->
+          <div class="supplier-box reveal">
+            <div>
+              <span class="hero-tag" style="background: rgba(255,255,255,0.06); color: var(--text-white); border-color: var(--border-card);">Partner Ecosystem</span>
+              <h3 style="font-size: 1.6rem; margin-top: 14px; margin-bottom: 12px;">Get in front of buyers who verify first.</h3>
+              <p style="font-size: 0.92rem; line-height: 1.6;">
+                Connect your engineering and manufacturing capability directly with vetted Indian OEMs looking for qualified tier-1 and tier-2 production partners.
+              </p>
+
+              <ul class="supplier-steps-list">
+                <li>
+                  <span class="badge">1</span>
+                  <div><strong>Register Credentials:</strong> Provide legal registration and export certification.</div>
+                </li>
+                <li>
+                  <span class="badge">2</span>
+                  <div><strong>Capability Audit:</strong> Verification of machinery, testing gear, and tolerances.</div>
+                </li>
+                <li>
+                  <span class="badge">3</span>
+                  <div><strong>Catalogue Listing:</strong> Direct presentation to qualified corporate buyers.</div>
+                </li>
+                <li>
+                  <span class="badge">4</span>
+                  <div><strong>Direct RFQ Enquiries:</strong> Secure orders backed by clear payment terms.</div>
+                </li>
+              </ul>
+            </div>
+
+            <button class="btn-outline" style="width: 100%; justify-content: center; background: rgba(229,185,59,0.1); border-color: var(--accent-gold); color: var(--accent-gold);" onclick="openSupplierModal()">
+              Apply for Supplier Verification
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY RSQUADZ -->
+    <section class="section-gap" id="why-rsquadz">
+      <div class="wrap">
+        <div class="section-headline-center reveal">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h2>An extension of your procurement desk.</h2>
+          <p>Not a marketplace and not a broker — a technical partner that carries your standards all the way to the dock.</p>
+        </div>
+
+        <div class="pillars-grid reveal-stagger">
+          <div class="pillar-card">
+            <h4>Technical Procurement Expertise</h4>
+            <p>We read engineering drawings, understand tolerances, and scrutinize BOM components instead of forwarding catalog numbers blindly.</p>
+          </div>
+          <div class="pillar-card">
+            <h4>Verified Supplier Network</h4>
+            <p>Pre-screened manufacturing partners evaluated for commercial integrity, capacity, and strict quality conformance.</p>
+          </div>
+          <div class="pillar-card">
+            <h4>End-to-End Orchestration</h4>
+            <p>From factory floor discovery to multimodal transit, customs release, and factory gate drop-off through one channel.</p>
+          </div>
+          <div class="pillar-card">
+            <h4>Transparent Commercials</h4>
+            <p>Itemized unit costs, shipping schedules, customs duties, and handling margins with zero hidden port fees.</p>
+          </div>
+          <div class="pillar-card">
+            <h4>Global Hub Proximity</h4>
+            <p>Established footprint and vendor network across key industrial and electronics export clusters including Shenzhen, Ningbo, and Guangzhou.</p>
+          </div>
+          <div class="pillar-card">
+            <h4>India-Focused Execution</h4>
+            <p>Specialized handling of Indian import regulatory frameworks, DGCA/QCI documentation support, and domestic freight.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="section-gap" style="background: var(--navy-900); border-top: 1px solid var(--border-card);" id="about">
+      <div class="wrap">
+        <div class="hero-layout reveal" style="align-items: flex-start;">
+          <div>
+            <div class="hero-tag">About RSquadz</div>
+            <h2 style="font-size: 2.3rem; margin-bottom: 20px;">We took the friction out of importing.</h2>
+            <p style="margin-bottom: 18px; font-size: 1.02rem;">
+              RSquadz started with one mission: make international procurement predictable. We work as a dedicated B2B global sourcing and logistics partner for teams building high-reliability hardware.
+            </p>
+            <p style="font-size: 0.95rem;">
+              Instead of leaving you to juggle brokers, shipping agents, and opaque marketplaces, we fold sourcing discovery, compliance validation, and door-to-door freight into a single accountable workflow.
+            </p>
+          </div>
+
+          <div style="background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: var(--radius-lg); padding: 36px;">
+            <h3 style="font-size: 1.25rem; margin-bottom: 16px;">Core Operating Principles</h3>
+            <ul style="list-style: none; display: flex; flex-direction: column; gap: 14px; font-size: 0.92rem;">
+              <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: var(--accent-gold); flex-shrink: 0; margin-top: 2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Documented facts over unverified supplier claims</li>
+              <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: var(--accent-gold); flex-shrink: 0; margin-top: 2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Multiple evaluated options rather than single-quote lock-in</li>
+              <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: var(--accent-gold); flex-shrink: 0; margin-top: 2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> In-house customs governance to prevent port holds</li>
+              <li style="display: flex; gap: 12px; align-items: flex-start;"><span style="color: var(--accent-gold); flex-shrink: 0; margin-top: 2px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg></span> Clear scope boundaries and verified metrics only</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="wrap">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="brand-logo" style="margin-bottom: 14px;">
+            <span>RSQUADZ</span>
+          </div>
+          <p style="font-size: 0.86rem; max-width: 34ch; margin-bottom: 16px;">
+            Global Sourcing • Verified Suppliers • Seamless Delivery. Enterprise procurement partner for Indian manufacturing.
+          </p>
+          <p style="font-size: 0.8rem; color: var(--text-muted);">
+            CIN / Registration: RSquadz
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Solutions</h5>
+          <ul>
+            <li><a href="#solutions">Global Sourcing</a></li>
+            <li><a href="#solutions">Supplier Verification</a></li>
+            <li><a href="#solutions">Door-to-Door Delivery</a></li>
+            <li><a href="#solutions">Logistics &amp; Customs</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Industries</h5>
+          <ul>
+            <li><a href="#industries">Aerospace &amp; Drones</a></li>
+            <li><a href="#industries">Electronics &amp; Technology</a></li>
+            <li><a href="#industries">Robotics &amp; Automation</a></li>
+            <li><a href="#industries">Energy &amp; Battery Systems</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Direct Contact</h5>
+          <ul>
+            <li><a href="mailto:procurement@rsquadz.com">procurement@rsquadz.com</a></li>
+            <li><a href="tel:+919876543210">+91 (0) 98765 43210</a></li>
+            <li><a href="#rfq-box" style="color: var(--accent-gold);">Submit Buyer RFQ &rarr;</a></li>
+            <li><a href="javascript:void(0)" onclick="openSupplierModal()">Join Supplier Network &rarr;</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>&copy; 2026 RSquadz. All rights reserved. Global sourcing, verification, and logistics infrastructure.</div>
+        <div style="display: flex; gap: 20px;">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Sourcing</a>
+          <a href="#">Compliance</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- FLOATING WHATSAPP / CONTACT BUTTON -->
+  <a href="#" id="floatContact" class="float-contact" target="_blank" rel="noopener noreferrer" aria-label="Chat with RSquadz on WhatsApp">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.02h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.25 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
+  </a>
+
+  <!-- MODAL: REQUEST A QUOTE -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeRFQModal()" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Request a Custom Procurement Quote</h3>
+      <p style="font-size: 0.88rem; margin-bottom: 24px;">Our engineering and sourcing specialists respond within 24 business hours.</p>
+
+      <form onsubmit="handleFormSubmit(event, 'Modal RFQ')">
+        <div class="form-control" style="margin-bottom: 14px;">
+          <label>Your Name &amp; Designation</label>
+          <input type="text" placeholder="Rajan Gaur — Sourcing Head" required>
+        </div>
+        <div class="form-group-grid">
+          <div class="form-control">
+            <label>Work Email</label>
+            <input type="email" placeholder="name@company.com" required>
+          </div>
+          <div class="form-control">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" placeholder="+91 98765 43210" required>
+          </div>
+        </div>
+        <div class="form-control" style="margin-bottom: 14px;">
+          <label>Components / Scope</label>
+          <textarea rows="3" placeholder="Provide part details, estimated quantities, and target timelines..." required></textarea>
+        </div>
+        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Send Requirement</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- MODAL: SUPPLIER ONBOARDING -->
+  <div class="modal-overlay" id="supplierModal">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeSupplierModal()" aria-label="Close dialog">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+      </button>
+      <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Apply to Join Verified RSquadz Supplier Network</h3>
+      <p style="font-size: 0.88rem; margin-bottom: 24px;">Access qualified enterprise orders from industrial buyers across India.</p>
+
+      <form onsubmit="handleFormSubmit(event, 'Supplier Application')">
+        <div class="form-control" style="margin-bottom: 14px;">
+          <label>Manufacturer / Company Name</label>
+          <input type="text" placeholder="e.g. Shenzhen Precision Dynamics Ltd." required>
+        </div>
+        <div class="form-group-grid">
+          <div class="form-control">
+            <label>Factory City &amp; Country</label>
+            <input type="text" placeholder="Shenzhen, China" required>
+          </div>
+          <div class="form-control">
+            <label>Primary Product Category</label>
+            <select required>
+              <option value="">Select Category...</option>
+              <option value="UAV / Drone Hardware">UAV / Drone Hardware</option>
+              <option value="PCBs & Semiconductors">PCBs &amp; Semiconductors</option>
+              <option value="Robotics & Motors">Robotics &amp; Motors</option>
+              <option value="Battery Cells / Packs">Battery Cells / Packs</option>
+              <option value="Precision Tooling">Precision Tooling</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group-grid">
+          <div class="form-control">
+            <label>Business Email</label>
+            <input type="email" placeholder="export@supplier.com" required>
+          </div>
+          <div class="form-control">
+            <label>Website URL</label>
+            <input type="url" placeholder="https://..." required>
+          </div>
+        </div>
+        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; margin-top: 10px;">
+          Submit Application for Audit
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    /* ============================================================
+       CONFIG — set these before going live
+       ============================================================ */
+    const PHONE_NUMBER = "[PHONE_NUMBER]"; // TODO: set WhatsApp number, digits only, intl format (e.g. 919876543210)
+    const WHATSAPP_MESSAGE = "Hi, I'd like to discuss procurement/sourcing with RSquadz.";
+
+    // Respect user's motion preference for all JS-driven animation
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Modal Controllers
+    function openRFQModal() {
+      document.getElementById('quoteModal').classList.add('active');
+    }
+    function closeRFQModal() {
+      document.getElementById('quoteModal').classList.remove('active');
+    }
+    function openSupplierModal() {
+      document.getElementById('supplierModal').classList.add('active');
+    }
+    function closeSupplierModal() {
+      document.getElementById('supplierModal').classList.remove('active');
+    }
+
+    // Close modal on escape or background click
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        closeRFQModal();
+        closeSupplierModal();
+      }
+    });
+    document.querySelectorAll('.modal-overlay').forEach(modal => {
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) {
+          modal.classList.remove('active');
+        }
+      });
+    });
+
+    // File Dropzone simulator
+    function updateFileLabel(input) {
+      if (input.files && input.files[0]) {
+        document.getElementById('dropzoneLabel').textContent = "Selected: " + input.files[0].name;
+      }
+    }
+
+    // Form Handling
+    function handleFormSubmit(e, formName) {
+      e.preventDefault();
+      alert(`Thank you. Your ${formName} has been received by the RSquadz Procurement Desk. A coordinator will contact you shortly.`);
+      e.target.reset();
+      closeRFQModal();
+      closeSupplierModal();
+    }
+
+    // Mobile Menu Toggle — class-based, no persistent inline styles
+    const mobileBtn = document.getElementById('mobileMenuBtn');
+    const primaryMenu = document.querySelector('nav.desktop-menu');
+
+    function setMenuOpen(open) {
+      primaryMenu.classList.toggle('mobile-open', open);
+      mobileBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    }
+    function closeMobileMenu() { setMenuOpen(false); }
+
+    if (mobileBtn && primaryMenu) {
+      mobileBtn.addEventListener('click', () => {
+        setMenuOpen(!primaryMenu.classList.contains('mobile-open'));
+      });
+
+      // Close the menu after selecting a nav link
+      primaryMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      // Reset to desktop layout on resize back to >=769px (no leftover state)
+      window.addEventListener('resize', () => {
+        if (window.innerWidth >= 769) closeMobileMenu();
+      });
+
+      // Close on Escape as well
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') closeMobileMenu();
+      });
+    }
+
+    /* ============================================================
+       ENHANCEMENTS (V2)
+       ============================================================ */
+
+    // --- WhatsApp floating button link ---
+    (function setupWhatsApp() {
+      const link = document.getElementById('floatContact');
+      if (!link) return;
+      const digits = PHONE_NUMBER.replace(/\D/g, '');
+      link.href = 'https://wa.me/' + digits + '?text=' + encodeURIComponent(WHATSAPP_MESSAGE);
+    })();
+
+    // --- Scroll-reveal via IntersectionObserver ---
+    (function setupReveal() {
+      const revealEls = document.querySelectorAll('.reveal, .reveal-stagger');
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        revealEls.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            obs.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(el => io.observe(el));
+    })();
+
+    // --- Count-up stat strip (one-time, latched) ---
+    (function setupCountUp() {
+      const strip = document.getElementById('statStrip');
+      if (!strip) return;
+      const counts = strip.querySelectorAll('.stat-count');
+
+      function setFinal() {
+        counts.forEach(el => { el.textContent = el.getAttribute('data-target'); });
+      }
+
+      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+        setFinal();
+        return;
+      }
+
+      let hasRun = false;
+      function animate(el) {
+        const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+        const duration = 1100;
+        const start = performance.now();
+        function tick(now) {
+          const p = Math.min((now - start) / duration, 1);
+          // ease-out
+          const eased = 1 - Math.pow(1 - p, 3);
+          el.textContent = Math.round(eased * target).toString();
+          if (p < 1) requestAnimationFrame(tick);
+          else el.textContent = target.toString();
+        }
+        requestAnimationFrame(tick);
+      }
+
+      const io = new IntersectionObserver((entries, obs) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting && !hasRun) {
+            hasRun = true; // latch: run once
+            counts.forEach(animate);
+            obs.disconnect();
+          }
+        });
+      }, { threshold: 0.4 });
+      io.observe(strip);
+    })();
+
+    // --- Header scroll state + floating button visibility (rAF-throttled) ---
+    (function setupScrollState() {
+      const header = document.getElementById('siteNav');
+      const floatBtn = document.getElementById('floatContact');
+      const heroSection = document.querySelector('.hero-section');
+      let ticking = false;
+
+      function getHeroBottom() {
+        return heroSection ? heroSection.offsetTop + heroSection.offsetHeight : 600;
+      }
+
+      function onScroll() {
+        const y = window.scrollY || window.pageYOffset;
+        if (header) header.classList.toggle('scrolled', y > 40);
+        if (floatBtn) floatBtn.classList.toggle('visible', y > getHeroBottom() - 200);
+        ticking = false;
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking) {
+          window.requestAnimationFrame(onScroll);
+          ticking = true;
+        }
+      }, { passive: true });
+
+      onScroll();
+    })();
+  </script>
+</body>
+</html>
