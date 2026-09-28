@@ -1,12 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-IN">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RSQUADZ LLP — Your Outsourced Procurement Desk</title>
-  <meta name="description" content="RSQUADZ acts as your outsourced procurement desk — finding, verifying, and managing suppliers on your behalf for drone, electronics, robotics, energy, and industrial-hardware buyers. Transparent, itemized quotations and coordinated delivery.">
+
+  <!-- SEO: enriched title with primary keywords -->
+  <title>RSQUADZ LLP — Drone Components, UAV Parts & Industrial Hardware Procurement</title>
+  <meta name="description" content="RSQUADZ is your outsourced procurement desk for drone components, UAV parts, electronics, robotics, and industrial hardware. We source globally, verify every supplier, and deliver door-to-door with transparent, itemized landed-cost quotations.">
+  <meta name="keywords" content="drone components, drone parts, UAV components, drone batteries, drone propellers, drone accessories, commercial drones, industrial drones, drone procurement, electronics sourcing, robotics parts, hardware procurement India">
+
+  <!-- SEO: canonical URL (update to your live domain) -->
+  <link rel="canonical" href="https://rsquadz.com/">
+
+  <!-- SEO: robots -->
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+  <!-- SEO: OpenGraph -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="RSQUADZ LLP">
+  <meta property="og:title" content="RSQUADZ — Drone Components, UAV Parts & Industrial Hardware Procurement">
+  <meta property="og:description" content="Source drone components, UAV parts, electronics, and industrial hardware globally. Verified suppliers, transparent landed-cost quotations, door-to-door delivery.">
+  <meta property="og:url" content="https://rsquadz.com/">
+  <meta property="og:image" content="https://rsquadz.com/og-image.jpg">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- SEO: Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RSQUADZ — Drone Components, UAV Parts & Hardware Procurement">
+  <meta name="twitter:description" content="Source drone components and industrial hardware globally. Verified suppliers, transparent pricing, door-to-door delivery.">
+  <meta name="twitter:image" content="https://rsquadz.com/og-image.jpg">
+
+  <!-- Favicon placeholder (replace with real .ico/.png when available) -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>?</text></svg>" type="image/svg+xml">
+
+  <!-- Fonts: preconnect + font-display:swap for better LCP -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap">
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
@@ -219,9 +249,10 @@
     [data-theme="light"] .theme-toggle .icon-moon { display: none; }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    html { scroll-behavior: smooth; font-size: 16px; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; width: 100%; }
     body {
       background-color: var(--bg-base);
+      max-width: 100vw;
       color: var(--text-primary);
       font-family: var(--font-body);
       line-height: 1.6;
@@ -231,6 +262,12 @@
 
     h1, h2, h3, h4 { font-family: var(--font-display); color: var(--heading-color); font-weight: 700; line-height: 1.18; }
     body { transition: background-color 0.2s ease, color 0.2s ease; }
+
+    /* Prevent horizontal swipe/overflow: clip decorative motifs & orbs to each section.
+       (Sections are position:relative and hold absolutely-positioned rings/orbs that
+       otherwise bleed past the viewport and allow left/right dragging on mobile.) */
+    main > section { overflow: hidden; }
+    .hero-section, .stat-strip-section, .getintouch-section { overflow: hidden; }
 
     /* Fallback (no View Transitions API): suppress element transitions for one frame
        so the palette swaps instantly together instead of a laggy per-element stagger. */
@@ -393,7 +430,7 @@
       gap: 6px;
     }
     .trust-strip-items span::before {
-      content: "•";
+      content: "—";
       color: var(--accent-gold);
     }
 
@@ -624,7 +661,7 @@
       justify-content: space-between;
       align-items: center;
     }
-    .model-header h4 { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
+    .model-header h4, .model-header .model-title { font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-muted); }
     .model-badge {
       font-size: 0.72rem;
       padding: 4px 10px;
@@ -701,7 +738,7 @@
       margin-top: 2px;
       white-space: nowrap;
     }
-    .step-content h5 { font-size: 1rem; color: var(--text-white); margin-bottom: 4px; }
+    .step-content h5, .step-content .step-title { font-size: 1rem; color: var(--text-white); margin-bottom: 4px; font-family: var(--font-display); font-weight: 700; }
     .step-content p { font-size: 0.84rem; color: var(--text-secondary); line-height: 1.45; }
 
     /* Animated Stat Strip */
@@ -746,11 +783,140 @@
       align-items: baseline;
     }
     .stat-num .suffix { font-size: 0.62em; margin-left: 2px; }
+    /* Factual capability statement (replaces numeric counters) */
+    .stat-fact {
+      font-family: var(--font-display);
+      font-weight: 700;
+      font-size: clamp(1.05rem, 1.6vw, 1.3rem);
+      color: var(--gold-vivid);
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+    }
     .stat-label {
       font-size: 0.86rem;
       color: var(--text-secondary);
       margin-top: 10px;
       font-weight: 500;
+    }
+
+    /* FAQ Section (SEO: matches JSON-LD FAQPage schema) */
+    .faq-section { background: var(--bg-base); }
+    .faq-list {
+      max-width: 820px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .faq-list details {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: var(--transition);
+    }
+    .faq-list details[open] { border-color: var(--accent-gold); }
+    .faq-list summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 22px;
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1rem;
+      color: var(--heading-color);
+      cursor: pointer;
+      list-style: none;
+    }
+    .faq-list summary::-webkit-details-marker { display: none; }
+    .faq-list summary::after {
+      content: "+";
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--accent-gold);
+      flex-shrink: 0;
+      margin-left: 16px;
+      transition: var(--transition);
+    }
+    .faq-list details[open] summary::after { content: "−"; }
+    .faq-list .faq-answer {
+      padding: 0 22px 18px;
+      font-size: 0.94rem;
+      line-height: 1.65;
+      color: var(--text-secondary);
+    }
+
+    /* Get in Touch — single consolidated CTA band */
+    .getintouch-section {
+      background: linear-gradient(180deg, var(--navy-900) 0%, var(--bg-base) 100%);
+      border-top: 1px solid var(--border-card);
+      border-bottom: 1px solid var(--border-card);
+      position: relative;
+      overflow: hidden;
+    }
+    .getintouch-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      text-align: center;
+      position: relative;
+      z-index: 2;
+    }
+    .getintouch-inner h2 { font-size: clamp(2rem, 3.4vw, 2.9rem); margin-bottom: 16px; }
+    .getintouch-inner p { font-size: 1.08rem; line-height: 1.65; margin-bottom: 30px; }
+    .getintouch-audiences {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+    .aud-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      color: var(--text-primary);
+      background: var(--surface-alpha);
+      border: 1px solid var(--border-card);
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+    }
+    .aud-pill svg { color: var(--gold-vivid); flex-shrink: 0; }
+    .getintouch-cta { display: inline-flex; }
+    .getintouch-cta .btn-gold { font-size: 1.05rem; padding: 16px 34px; }
+
+    /* What We Do — Source -> Verify -> Deliver quick band */
+    .whatwedo-section { background: var(--bg-base); }
+    .whatwedo-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr auto 1fr;
+      align-items: stretch;
+      gap: 0;
+    }
+    .wwd-step {
+      text-align: center;
+      padding: 8px 24px;
+    }
+    .wwd-num {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      color: var(--gold-vivid);
+      margin-bottom: 12px;
+    }
+    .wwd-step h3 { font-size: 1.25rem; margin-bottom: 8px; }
+    .wwd-step p { font-size: 0.92rem; line-height: 1.55; }
+    .wwd-arrow {
+      align-self: center;
+      color: var(--accent-gold);
+      opacity: 0.7;
+      flex-shrink: 0;
+    }
+    @media (max-width: 860px) {
+      .whatwedo-grid { grid-template-columns: 1fr; gap: 8px; }
+      .wwd-arrow { transform: rotate(90deg); margin: 4px auto; }
     }
 
     /* Technical Differentiator Band */
@@ -861,7 +1027,7 @@
       color: #EF4444;
       margin-bottom: 18px;
     }
-    .problem-card h4 { font-size: 1.05rem; margin-bottom: 8px; color: var(--text-white); }
+    .problem-card h4, .problem-card h3 { font-size: 1.05rem; margin-bottom: 8px; color: var(--text-white); }
     .problem-card p { font-size: 0.88rem; line-height: 1.55; }
     .problem-callout {
       margin-top: 48px;
@@ -971,7 +1137,7 @@
       margin-bottom: 8px;
     }
     .process-box:hover { border-color: var(--accent-indigo); }
-    .process-box h4 { font-size: 1.05rem; margin-bottom: 6px; }
+    .process-box h4, .process-box h3 { font-size: 1.05rem; margin-bottom: 6px; }
     .process-box p { font-size: 0.84rem; }
 
     /* Industries We Serve */
@@ -1002,7 +1168,7 @@
       margin-bottom: 12px;
       display: block;
     }
-    .industry-card h4 { font-size: 1.15rem; margin-bottom: 10px; }
+    .industry-card h4, .industry-card h3 { font-size: 1.15rem; margin-bottom: 10px; }
     .industry-card p { font-size: 0.86rem; line-height: 1.5; }
 
     /* Two-Sided Ecosystem (Buyers & Suppliers) */
@@ -1203,6 +1369,34 @@
       color: var(--text-muted);
     }
 
+    /* What you receive — deliverables checklist */
+    .receive-box {
+      max-width: 960px;
+      margin: 44px auto 0;
+      background: var(--bg-surface);
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-lg);
+      padding: 30px 34px;
+    }
+    .receive-box h3 { font-size: 1.2rem; margin-bottom: 6px; }
+    .receive-box .receive-sub { font-size: 0.9rem; margin-bottom: 20px; }
+    .receive-list {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px 28px;
+    }
+    .receive-list li {
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+      font-size: 0.92rem;
+      color: var(--text-primary);
+    }
+    .receive-list li svg { color: var(--gold-vivid); flex-shrink: 0; margin-top: 3px; }
+    .receive-list li strong { color: var(--heading-color); font-weight: 700; }
+    @media (max-width: 680px) { .receive-list { grid-template-columns: 1fr; } }
+
     /* Case study strip */
     .case-grid {
       display: grid;
@@ -1220,7 +1414,7 @@
     }
     .case-card:hover { transform: translateY(-4px); box-shadow: 0 14px 32px rgba(0,0,0,0.4); }
     .case-sector { font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--accent-cyan); font-weight: 700; margin-bottom: 10px; }
-    .case-card h4 { font-size: 1.02rem; margin-bottom: 10px; }
+    .case-card h4, .case-card h3 { font-size: 1.02rem; margin-bottom: 10px; }
     .case-card p { font-size: 0.86rem; line-height: 1.55; margin-bottom: 14px; }
     .case-result {
       font-size: 0.82rem;
@@ -1250,7 +1444,7 @@
       transform: translateY(-4px);
       box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(229, 185, 59, 0.12);
     }
-    .pillar-card h4 { font-size: 1.15rem; margin-bottom: 10px; color: var(--text-white); }
+    .pillar-card h4, .pillar-card h3 { font-size: 1.15rem; margin-bottom: 10px; color: var(--text-white); }
     .pillar-card p { font-size: 0.9rem; line-height: 1.6; }
 
     /* ===== LOGISTICS TICKER (MVP) ===== */
@@ -1463,6 +1657,52 @@
     }
     .modal-close:hover { color: var(--text-white); background: rgba(255,255,255,0.06); }
 
+    /* Role toggle inside the unified contact modal */
+    .role-toggle {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
+    .role-opt {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      text-align: center;
+      padding: 14px 12px;
+      border: 1px solid var(--border-card);
+      border-radius: var(--radius-md);
+      background: var(--surface-alpha);
+      color: var(--text-secondary);
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+    .role-opt small { font-weight: 500; font-size: 0.76rem; color: var(--text-muted); }
+    .role-opt svg { color: var(--text-muted); transition: var(--transition); }
+    .role-opt:hover { border-color: rgba(229,185,59,0.4); }
+    .role-opt.active {
+      border-color: var(--accent-gold);
+      background: var(--accent-gold-subtle);
+      color: var(--heading-color);
+      box-shadow: 0 0 0 1px var(--accent-gold);
+    }
+    .role-opt.active svg,
+    .role-opt.active small { color: var(--accent-gold); }
+    .role-label {
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 10px;
+      display: block;
+    }
+    .role-fields { display: none; }
+    .role-fields.active { display: block; animation: modalIn 0.25s cubic-bezier(0.16,1,0.3,1); }
+
     /* Scroll reveal */
     .reveal {
       opacity: 0;
@@ -1490,8 +1730,9 @@
     .reveal-stagger.is-visible > *:nth-child(5) { transition-delay: 0.24s; }
     .reveal-stagger.is-visible > *:nth-child(6) { transition-delay: 0.30s; }
 
-    /* Floating WhatsApp / contact button */
+    /* Floating WhatsApp / contact button — DISABLED for now (set to flex to re-enable) */
     .float-contact {
+      display: none !important;
       position: fixed;
       bottom: calc(24px + env(safe-area-inset-bottom, 0px));
       right: calc(24px + env(safe-area-inset-right, 0px));
@@ -1795,6 +2036,7 @@
       padding: 1px;
       background: conic-gradient(from 0deg, transparent 0deg, rgba(229,185,59,0.35) 60deg, transparent 140deg, transparent 360deg);
       -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
       -webkit-mask-composite: xor;
       mask-composite: exclude;
       animation: borderSpin 9s linear infinite;
@@ -1841,6 +2083,251 @@
       .scroll-progress { display: none; }
     }
   </style>
+
+  <!-- SEO: Structured Data (JSON-LD) — invisible to users, consumed by Google/Bing/AI -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["Organization", "LocalBusiness"],
+        "@id": "https://rsquadz.com/#organization",
+        "name": "RSQUADZ LLP",
+        "alternateName": "RSquadz",
+        "url": "https://rsquadz.com",
+        "logo": "https://rsquadz.com/logo.png",
+        "description": "Outsourced procurement desk for drone components, UAV parts, electronics, robotics, energy, and industrial hardware. We source globally, verify every supplier, and deliver door-to-door.",
+        "foundingDate": "2024",
+        "legalName": "RSQUADZ LLP",
+        "email": "rsquadzimpex@gmail.com",
+        "telephone": "+919311360311",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "38/1, Shastri Colony, Sector 19",
+          "addressLocality": "Faridabad",
+          "addressRegion": "Haryana",
+          "postalCode": "121002",
+          "addressCountry": "IN"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 28.3767,
+          "longitude": 77.3107
+        },
+        "areaServed": {
+          "@type": "Country",
+          "name": "India"
+        },
+        "knowsAbout": [
+          "drone components", "UAV parts", "drone batteries", "drone propellers",
+          "drone accessories", "commercial drones", "industrial drones",
+          "electronics procurement", "robotics components", "energy storage",
+          "international procurement", "supplier verification", "landed-cost analysis"
+        ],
+        "sameAs": [],
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+919311360311",
+          "contactType": "sales",
+          "email": "rsquadzimpex@gmail.com",
+          "availableLanguage": ["English", "Hindi"]
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://rsquadz.com/#website",
+        "url": "https://rsquadz.com",
+        "name": "RSQUADZ",
+        "description": "Global procurement partner for drone components, UAV parts, and industrial hardware",
+        "publisher": { "@id": "https://rsquadz.com/#organization" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://rsquadz.com/#webpage",
+        "url": "https://rsquadz.com",
+        "name": "RSQUADZ — Drone Components, UAV Parts & Industrial Hardware Procurement",
+        "isPartOf": { "@id": "https://rsquadz.com/#website" },
+        "about": { "@id": "https://rsquadz.com/#organization" },
+        "description": "Source drone components, UAV parts, electronics, and industrial hardware globally. Verified suppliers, transparent landed-cost quotations, door-to-door delivery.",
+        "breadcrumb": { "@id": "https://rsquadz.com/#breadcrumb" }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://rsquadz.com/#breadcrumb",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://rsquadz.com/" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "serviceType": "International Procurement & Supplier Verification",
+        "provider": { "@id": "https://rsquadz.com/#organization" },
+        "name": "Drone Component & UAV Parts Procurement",
+        "description": "End-to-end sourcing, supplier verification, and door-to-door delivery of drone components, UAV parts, drone batteries, drone propellers, electronics, robotics components, and industrial hardware for Indian OEMs and manufacturers.",
+        "areaServed": { "@type": "Country", "name": "India" },
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Industries Served",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Aerospace & Drone Component Procurement" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Electronics & Semiconductor Sourcing" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Robotics & Mechatronics Parts Supply" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Energy & Battery Systems Procurement" } }
+          ]
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does RSQUADZ source drone components and UAV parts?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "RSQUADZ identifies direct manufacturers across key industrial hubs (Shenzhen, Ningbo, Guangzhou), verifies them through a six-point check (company identity, manufacturing capability, product capability, commercial terms, quality and document checks, logistics readiness), compares quotations on true landed cost, and delivers door-to-door to your facility in India."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What drone parts can RSQUADZ procure?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We procure a wide range of drone components including BLDC motors, ESCs, flight controllers, carbon composite frames, drone batteries (prismatic and cylindrical cells, custom BMS modules), drone propellers, RF telemetry modules, optronic payloads, LiDAR modules, and custom wiring harnesses for UAV and commercial drone applications."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does RSQUADZ verify suppliers before I place an order?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. Every supplier goes through our documented verification methodology covering six areas: company identity, manufacturing capability, product capability, commercial terms, quality and document checks, and logistics readiness. Each supplier receives a recommendation of Approved, Approved with Conditions, or Not Recommended before any order is placed."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is included in a landed-cost quotation from RSQUADZ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Our quotation itemizes every charge separately: product cost, freight and insurance, customs duties and statutory charges, third-party expenses, and our clearly identified professional fee. There are no hidden charges — you see the full cost to your dock before committing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Which industries does RSQUADZ serve?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "We specialize in technical hardware procurement for four industries: Aerospace and Drones (BLDC motors, ESCs, carbon frames, flight controllers), Electronics and Semiconductors (PCBs, microcontrollers, sensors, RF modules), Robotics and Mechatronics (servo drives, actuators, gearboxes), and Energy and Battery Technology (cells, BMS modules, thermal management, power electronics)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does customs clearance work with RSQUADZ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Customs clearance is coordinated through our verified CHA (Customs House Agent) partners. We handle accurate HS Code classification, documentation preparation, and port clearance coordination so your drone components and industrial hardware clear without delays."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can RSQUADZ source drone batteries for commercial and industrial UAVs?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. We procure drone batteries including prismatic and cylindrical lithium cells, custom BMS modules, and complete battery packs for commercial drones and industrial UAV applications. Every battery supplier is verified for quality certifications, UN38.3 compliance applicability, and manufacturing capability before ordering."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I source drone propellers and UAV accessories through RSQUADZ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Send us your propeller specifications (size, pitch, material, motor compatibility) or a complete BOM. We identify verified manufacturers, compare quotes on true landed cost including freight and customs, and deliver the drone propellers and UAV accessories door-to-door to your facility in India."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does RSQUADZ handle procurement for commercial drone manufacturers in India?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. RSQUADZ works as an outsourced procurement desk specifically for Indian commercial drone manufacturers, UAV builders, and industrial hardware OEMs. We handle the full cycle: requirement review, global supplier sourcing, verification, purchase, international freight, customs coordination, and final delivery to your production facility."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the typical lead time for importing drone components through RSQUADZ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Lead times vary by component and shipping mode. Air freight for drone parts typically takes 7–14 days from factory to your dock; ocean freight for larger orders takes 25–40 days. We provide a clear timeline estimate in every landed-cost quotation before you commit to an order."
+            }
+          }
+        ]
+      },
+      {
+        "@type": "HowTo",
+        "name": "How RSQUADZ procures drone components and industrial hardware — 9-step process",
+        "description": "A systematic, auditable procurement sequence from requirement capture to final delivery of drone parts, UAV components, and industrial hardware to your dock in India.",
+        "totalTime": "P14D",
+        "estimatedCost": { "@type": "MonetaryAmount", "currency": "INR", "value": "Varies by requirement" },
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Requirement & Review",
+            "text": "We read the engineering drawing and BOM — parameters, specifications, and delivery tolerances captured up front for your drone components or industrial parts."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Source Suppliers",
+            "text": "Targeted discovery of direct manufacturers across proven industrial hubs like Shenzhen and Ningbo for drone parts, UAV components, and electronics."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Quotation Comparison",
+            "text": "Commercial benchmarking of multiple suppliers based on true landed cost and production lead time for drone batteries, propellers, and other components."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Supplier Verification",
+            "text": "Rigorous six-point vetting of corporate legitimacy, manufacturing capability, product capability, commercial terms, quality checks, and logistics readiness."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Purchase",
+            "text": "Contract finalization with milestone-guarded international payment terms for your drone component or UAV parts order."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 6,
+            "name": "Factory Pickup",
+            "text": "Coordinated origin pickup with pre-dispatch export packaging checks at the manufacturer's facility."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 7,
+            "name": "Ship",
+            "text": "Air or ocean freight routing selected for optimal balance of speed and cost for your drone parts shipment."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 8,
+            "name": "Customs Clearance",
+            "text": "Accurate HS Code classification and port clearance coordinated through verified CHA partners for drone components and industrial hardware imports into India."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 9,
+            "name": "Deliver to Your Dock",
+            "text": "Insured domestic transport and proof-of-delivery handover of your drone components, UAV parts, or industrial hardware at your facility."
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
 </head>
 <body>
 
@@ -1855,6 +2342,13 @@
       }
     })();
   </script>
+
+  <!-- SEO: noscript fallback for crawlers and JS-disabled users -->
+  <noscript>
+    <div style="background:#E7BC46;color:#0A0D1A;text-align:center;padding:12px;font-size:14px;font-family:sans-serif;">
+      RSQUADZ LLP — Global procurement of drone components, UAV parts, electronics, robotics, and industrial hardware. Contact us at <a href="mailto:rsquadzimpex@gmail.com" style="color:#0A0D1A;text-decoration:underline;">rsquadzimpex@gmail.com</a> or call <a href="tel:+919311360311" style="color:#0A0D1A;text-decoration:underline;">+91 93113 60311</a>.
+    </div>
+  </noscript>
 
   <!-- Scroll progress bar -->
   <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
@@ -1880,7 +2374,7 @@
   <header id="siteNav">
     <div class="wrap nav-inner">
       <a href="#" class="brand-logo" aria-label="RSQUADZ home">
-        <svg class="brand-mark" viewBox="0 0 100 100" role="img" aria-hidden="true">
+        <svg class="brand-mark" viewBox="0 0 100 100" width="34" height="34" role="img" aria-hidden="true">
           <polygon class="mark-hex-fill" points="50,6 88,28 88,72 50,94 12,72 12,28"/>
           <polygon class="mark-hex" points="50,6 88,28 88,72 50,94 12,72 12,28" stroke-linejoin="round"/>
           <path class="mark-r" d="M34 28 h20 a15 15 0 0 1 0 30 h-6 l16 16 h-13 L36 61 v-6 h16 a7 7 0 0 0 0-14 H42 v33 h-8 Z"/>
@@ -1895,8 +2389,8 @@
         <a href="#process">How It Works</a>
         <a href="#proof">Proof</a>
         <a href="#industries">Industries</a>
-        <a href="#suppliers">For Suppliers</a>
         <a href="#about">About</a>
+        <a href="#contact">Contact</a>
       </nav>
 
       <div class="nav-actions">
@@ -1904,7 +2398,7 @@
           <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
           <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
         </button>
-        <button class="btn-gold" onclick="openRFQModal()">Request a Quote</button>
+        <button class="btn-gold" onclick="openContactModal('Buyer')">Get in Touch</button>
         <button class="nav-toggle-btn" id="mobileMenuBtn" aria-label="Toggle Menu" aria-expanded="false" aria-controls="primaryMenu">
           <svg class="icon-menu" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
           <svg class="icon-close" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6L6 18M6 6l12 12"/></svg>
@@ -1928,14 +2422,14 @@
             <span>Deliver seamlessly.</span>
           </h1>
           <p class="hero-sub">
-            RSQUADZ acts as your outsourced procurement desk — identifying qualified suppliers, evaluating commercial and technical fit, coordinating international procurement, and managing delivery through one accountable point of contact.
+            Send us a part, a BOM, or a drone component spec. We find and verify the right manufacturer, compare quotes on true landed cost, and deliver it to your door — all through one accountable contact.
           </p>
           <div class="hero-cta-group">
-            <button class="btn-gold" onclick="openRFQModal()">
-              <span>Request a Quote</span>
+            <button class="btn-gold" onclick="openContactModal('Buyer')">
+              <span>Get My Procurement Plan</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
-            <a href="#rfq-box" class="btn-outline">Talk to Procurement Team</a>
+            <button type="button" class="btn-outline" onclick="openContactModal('Supplier')">I'm a Supplier</button>
           </div>
           <div class="hero-credentials" aria-label="Key credentials">
             <span class="cred-pill">
@@ -1956,28 +2450,28 @@
         <!-- The RSquadz Model (Source | Verify | Deliver) -->
         <div class="hero-model-card">
           <div class="model-header">
-            <h4>The RSquadz Operating Model</h4>
+            <span class="model-title">The RSquadz Operating Model</span>
             <span class="model-badge">Single Channel Execution</span>
           </div>
           <div class="model-pills">
             <div class="model-step-box">
               <span class="step-tag">01 / SOURCE</span>
               <div class="step-content">
-                <h5>Global Supplier Discovery</h5>
+                <p class="step-title">Global Supplier Discovery</p>
                 <p>Direct manufacturer identification and BOM-level technical matching across key global industrial hubs.</p>
               </div>
             </div>
             <div class="model-step-box">
               <span class="step-tag">02 / VERIFY</span>
               <div class="step-content">
-                <h5>Supplier &amp; Product Verification</h5>
+                <p class="step-title">Supplier &amp; Product Verification</p>
                 <p>Rigorous desk audits, business legitimacy, compliance validation, and sample quality checks before ordering.</p>
               </div>
             </div>
             <div class="model-step-box">
               <span class="step-tag">03 / DELIVER</span>
               <div class="step-content">
-                <h5>Door-to-Door Supply Chain</h5>
+                <p class="step-title">Door-to-Door Supply Chain</p>
                 <p>Origin pickup, air/sea freight, customs clearance coordinated through verified CHA partners, and inland trucking direct to your shop floor.</p>
               </div>
             </div>
@@ -1992,27 +2486,57 @@
       <div class="wrap">
         <div class="stat-strip" id="statStrip">
           <div class="stat-item">
-            <div class="stat-num"><span class="stat-count" data-target="12">0</span><span class="suffix">+</span></div>
-            <div class="stat-label">Global Sourcing Hubs</div>
+            <div class="stat-fact">Every supplier verified</div>
+            <div class="stat-label">before you commit an order</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num"><span class="stat-count" data-target="4">0</span></div>
-            <div class="stat-label">Core Industries Served</div>
+            <div class="stat-fact">One accountable contact</div>
+            <div class="stat-label">from requirement to delivery</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num"><span class="stat-count" data-target="9">0</span><span class="suffix">-Stage</span></div>
-            <div class="stat-label">Documented Workflow</div>
+            <div class="stat-fact">Transparent landed cost</div>
+            <div class="stat-label">every charge itemized</div>
           </div>
           <div class="stat-item">
-            <div class="stat-num"><span class="stat-count" data-target="6">0</span></div>
-            <div class="stat-label">Verification Checkpoints</div>
+            <div class="stat-fact">Built for technical hardware</div>
+            <div class="stat-label">UAV, electronics, robotics, energy</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHAT WE DO — Source -> Verify -> Deliver -->
+    <section class="section-gap whatwedo-section" id="what-we-do" aria-label="What RSQUADZ does — source, verify, deliver">
+      <div class="wrap">
+        <div class="section-headline-center reveal">
+          <div class="gold-divider" aria-hidden="true"></div>
+          <h2>What we do</h2>
+          <p>Three moves, one accountable partner — from your drone component requirement to your dock.</p>
+        </div>
+        <div class="whatwedo-grid reveal-stagger">
+          <div class="wwd-step">
+            <div class="wwd-num">01 — SOURCE</div>
+            <h3>Source globally</h3>
+            <p>We find the genuine manufacturer that matches your exact specification.</p>
+          </div>
+          <svg class="wwd-arrow" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class="wwd-step">
+            <div class="wwd-num">02 — VERIFY</div>
+            <h3>Verify confidently</h3>
+            <p>We check who you're buying from — identity, capability, compliance — before you order.</p>
+          </div>
+          <svg class="wwd-arrow" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class="wwd-step">
+            <div class="wwd-num">03 — DELIVER</div>
+            <h3>Deliver seamlessly</h3>
+            <p>We coordinate freight, customs, and inland transport to your door, cost fully itemized.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- TECHNICAL PROCUREMENT DIFFERENTIATOR -->
-    <section class="section-gap tech-diff-section" id="technical">
+    <section class="section-gap tech-diff-section" id="technical" aria-label="Technical procurement differentiator">
       <div class="bg-grid-overlay" aria-hidden="true"></div>
       <div class="wrap">
         <div class="tech-diff-layout">
@@ -2036,12 +2560,12 @@
     </section>
 
     <!-- THE PROBLEM WE SOLVE -->
-    <section class="section-gap problem-section" id="problem">
+    <section class="section-gap problem-section" id="problem" aria-label="Procurement problems we solve">
       <div class="wrap">
         <div class="section-headline-center reveal">
           <div class="gold-divider" aria-hidden="true"></div>
           <h2>Importing breaks in predictable places.</h2>
-          <p>For drone, electronics, robotics, energy, and industrial-hardware teams, every unverified link between you and a factory is a place your order can stall, drift out of spec, or disappear. We close each one.</p>
+          <p>For drone manufacturers, UAV builders, electronics, robotics, energy, and industrial-hardware teams, every unverified link between you and a factory is a place your order can stall, drift out of spec, or disappear. We close each one.</p>
         </div>
 
         <div class="problem-grid reveal-stagger">
@@ -2049,28 +2573,28 @@
             <div class="problem-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </div>
-            <h4>Unverified Factories</h4>
+            <h3>Unverified Factories</h3>
             <p>Chat-window deals with brokers posing as the original manufacturer, with no proof of who actually makes the part.</p>
           </div>
           <div class="problem-card">
             <div class="problem-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </div>
-            <h4>Out-of-Spec Parts</h4>
+            <h3>Out-of-Spec Parts</h3>
             <p>Components that miss tolerance and leave you with zero recourse once a cross-border payment has cleared.</p>
           </div>
           <div class="problem-card">
             <div class="problem-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </div>
-            <h4>Customs Impasses</h4>
+            <h3>Customs Impasses</h3>
             <p>Mismatched HS codes and missing paperwork that strand high-value freight at the port for weeks.</p>
           </div>
           <div class="problem-card">
             <div class="problem-icon" aria-hidden="true">
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
             </div>
-            <h4>Fragmented Logistics</h4>
+            <h3>Fragmented Logistics</h3>
             <p>Chasing forwarders, clearing agents, and couriers separately, with no single party owning the outcome.</p>
           </div>
         </div>
@@ -2082,12 +2606,12 @@
     </section>
 
     <!-- CORE SERVICES -->
-    <section class="section-gap" id="solutions">
+    <section class="section-gap" id="solutions" aria-label="Drone component and UAV parts procurement services">
       <div class="wrap">
         <div class="section-headline-center reveal">
           <div class="gold-divider" aria-hidden="true"></div>
           <h2>Procurement, engineered — not just forwarded.</h2>
-          <p>Four connected services built for aerospace, electronics, robotics, and precision engineering teams that can't afford a bad part.</p>
+          <p>Four connected services built for aerospace, drone, electronics, robotics, and precision engineering teams sourcing UAV components and industrial parts that can't afford to fail.</p>
         </div>
 
         <div class="services-grid reveal-stagger">
@@ -2166,47 +2690,47 @@
         <div class="process-timeline reveal-stagger">
           <div class="process-box">
             <div class="process-step-idx">STEP 01</div>
-            <h4>Requirement &amp; Review</h4>
+            <h3>Requirement &amp; Review</h3>
             <p>We read the drawing, not just the catalog number — parameters, BOMs, and delivery tolerances captured up front.</p>
           </div>
           <div class="process-box">
             <div class="process-step-idx">STEP 02</div>
-            <h4>Supplier Identification</h4>
+            <h3>Source Suppliers</h3>
             <p>Targeted discovery across proven industrial hubs like Shenzhen and Ningbo.</p>
           </div>
           <div class="process-box">
             <div class="process-step-idx">STEP 03</div>
-            <h4>Quotation Comparison</h4>
+            <h3>Quotation Comparison</h3>
             <p>Commercial benchmarking based on true landed cost and production lead time.</p>
           </div>
           <div class="process-box">
             <div class="process-step-idx">STEP 04</div>
-            <h4>Supplier Verification</h4>
+            <h3>Supplier Verification</h3>
             <p>Rigorous vetting of corporate legitimacy, tax filings, and quality certs.</p>
           </div>
           <div class="process-box">
             <div class="process-step-idx">STEP 05</div>
-            <h4>Purchase Execution</h4>
+            <h3>Purchase</h3>
             <p>Contract finalization with milestone-guarded international terms.</p>
           </div>
           <div class="process-box">
             <div class="process-step-idx">STEP 06</div>
-            <h4>Factory Pickup</h4>
+            <h3>Factory Pickup</h3>
             <p>Coordinated origin pickup and pre-dispatch export packaging checks.</p>
           </div>
           <div class="process-box">
             <div class="process-step-idx">STEP 07</div>
-            <h4>International Freight</h4>
+            <h3>Ship</h3>
             <p>Air or ocean routing selected for optimal balance of speed and cost.</p>
           </div>
           <div class="process-box">
             <div class="process-step-idx">STEP 08</div>
-            <h4>Customs Clearance</h4>
+            <h3>Customs Clearance</h3>
             <p>Accurate HS Code classification and port clearance coordinated through verified CHA partners.</p>
           </div>
           <div class="process-box">
             <div class="process-step-idx">STEP 09</div>
-            <h4>Final Facility Delivery</h4>
+            <h3>Deliver to Your Dock</h3>
             <p>Insured domestic transport and proof-of-delivery handover at your dock.</p>
           </div>
         </div>
@@ -2214,7 +2738,7 @@
     </section>
 
     <!-- PROOF: SAMPLES, SCORECARDS & CASE STUDIES -->
-    <section class="section-gap proof-section" id="proof">
+    <section class="section-gap proof-section" id="proof" aria-label="Procurement proof — sample deliverables and case studies">
       <div class="wrap">
         <div class="section-headline-center reveal">
           <div class="gold-divider" aria-hidden="true"></div>
@@ -2223,14 +2747,14 @@
         </div>
 
         <div class="verified-def reveal">
-          <strong>What "verified" means at RSQUADZ:</strong> a documented review across six areas — company identity, manufacturing capability, product capability, commercial terms, compliance applicability, and risk — closing with a clear recommendation of <em>Approved</em>, <em>Approved with Conditions</em>, or <em>Not Recommended</em>. Nothing is called "verified" without this report behind it.
+          <strong>The RSQUADZ verification methodology:</strong> a documented review across six areas — company identity, manufacturing capability, product capability, commercial terms, quality &amp; document checks, and logistics readiness — closing with a clear recommendation of <em>Approved</em>, <em>Approved with Conditions</em>, or <em>Not Recommended</em>. Nothing is called "verified" without this report behind it.
         </div>
 
         <div class="proof-grid reveal-stagger">
           <!-- Sample Supplier Verification Report -->
           <div class="proof-card">
             <div class="proof-tag">Sample Deliverable</div>
-            <h4>Supplier Verification Report</h4>
+            <h3>Supplier Verification Report</h3>
             <p>A structured check of a candidate manufacturer before you order a single unit.</p>
             <div class="proof-sample" aria-label="Sample verification report extract">
               <div class="sample-row"><span>Company identity</span><span>Confirmed</span></div>
@@ -2243,7 +2767,7 @@
           <!-- Sample RFQ Comparison Sheet -->
           <div class="proof-card">
             <div class="proof-tag">Sample Deliverable</div>
-            <h4>RFQ Comparison Sheet</h4>
+            <h3>RFQ Comparison Sheet</h3>
             <p>Multiple evaluated suppliers side by side — never a single-quote lock-in.</p>
             <div class="proof-sample" aria-label="Sample RFQ comparison extract">
               <div class="sample-row"><span>Supplier A — unit price</span><span>$4.20</span></div>
@@ -2256,7 +2780,7 @@
           <!-- Sample Landed-Cost Calculation -->
           <div class="proof-card">
             <div class="proof-tag">Sample Deliverable</div>
-            <h4>Landed-Cost Calculation</h4>
+            <h3>Landed-Cost Calculation</h3>
             <p>The full itemized cost to your dock — with our professional fee shown separately.</p>
             <div class="proof-sample" aria-label="Sample landed-cost extract">
               <div class="sample-row"><span>Product cost</span><span>$1,975</span></div>
@@ -2269,7 +2793,7 @@
           <!-- Supplier Risk Scorecard -->
           <div class="proof-card">
             <div class="proof-tag">Sample Deliverable</div>
-            <h4>Supplier Risk Scorecard</h4>
+            <h3>Supplier Risk Scorecard</h3>
             <p>Commercial, technical, documentation, and supply-chain risk, rated per supplier.</p>
             <div class="proof-sample" aria-label="Sample risk scorecard extract">
               <div class="sample-row"><span>Commercial risk</span><span><span class="sample-pill pill-low">Low</span></span></div>
@@ -2279,26 +2803,38 @@
             </div>
           </div>
 
-          <!-- What you receive -->
+        </div>
+
+        <!-- What you receive — the deliverables on every engagement -->
+        <div class="receive-box reveal">
+          <h3>What you receive</h3>
+          <p class="receive-sub">Every buyer engagement ends with a complete, documented procurement package:</p>
+          <ul class="receive-list">
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Supplier shortlist</strong> — verified candidates matched to your spec</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Quotation comparison</strong> — suppliers evaluated side by side</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Verification summary</strong> — the documented supplier check</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Landed-cost estimate</strong> — every charge itemized to your dock</span></li>
+            <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg><span><strong>Procurement &amp; delivery plan</strong> — timeline and accountable contact</span></li>
+          </ul>
         </div>
 
         <!-- Anonymized case studies -->
         <div class="case-grid reveal-stagger">
           <div class="case-card">
             <div class="case-sector">Aerospace &amp; Drones</div>
-            <h4>Replacing an unverified broker</h4>
+            <h3>Replacing an unverified broker</h3>
             <p>A UAV builder was buying flight-controller components through a chat-window broker with no proof of the maker. We identified the direct manufacturer and verified it before reordering.</p>
             <div class="case-result">Traceable direct supply, spec confirmed pre-order</div>
           </div>
           <div class="case-card">
             <div class="case-sector">Electronics</div>
-            <h4>Clearing a stalled shipment</h4>
+            <h3>Clearing a stalled shipment</h3>
             <p>A PCB import was held at port on a mismatched HS code. We corrected classification and coordinated release through a verified CHA partner.</p>
             <div class="case-result">Documentation corrected, freight released</div>
           </div>
           <div class="case-card">
             <div class="case-sector">Energy &amp; Battery</div>
-            <h4>Comparing on true landed cost</h4>
+            <h3>Comparing on true landed cost</h3>
             <p>A battery-pack buyer was comparing quotes on unit price alone. Our landed-cost analysis surfaced the lower total once duties and freight were included.</p>
             <div class="case-result">Decision made on total cost, not headline price</div>
           </div>
@@ -2309,34 +2845,34 @@
     </section>
 
     <!-- INDUSTRIES WE SERVE -->
-    <section class="section-gap" id="industries">
+    <section class="section-gap" id="industries" aria-label="Industries served — drones, electronics, robotics, energy">
       <div class="wrap">
         <div class="section-headline-center reveal">
           <div class="gold-divider" aria-hidden="true"></div>
           <h2>Built for parts that can't fail.</h2>
-          <p>Component-level procurement depth for the mission-critical hardware you design and build.</p>
+          <p>Component-level procurement depth for the mission-critical drone parts, UAV components, and industrial hardware you design and build.</p>
         </div>
 
         <div class="industry-grid reveal-stagger">
           <div class="industry-card">
             <span class="ind-badge">Mission Critical</span>
-            <h4>Aerospace &amp; Drones</h4>
-            <p>BLDC motors, ESCs, carbon composite frames, flight controllers, RF telemetry, and optronic payloads.</p>
+            <h3>Aerospace &amp; Drones</h3>
+            <p>BLDC motors, ESCs, carbon composite frames, flight controllers, drone propellers, drone batteries, RF telemetry, optronic payloads, and UAV accessories.</p>
           </div>
           <div class="industry-card">
             <span class="ind-badge">Precision Tech</span>
-            <h4>Electronics &amp; Semiconductors</h4>
+            <h3>Electronics &amp; Semiconductors</h3>
             <p>Multilayer PCBs, microcontrollers, passive components, sensors, RF modules, and custom wiring harnesses.</p>
           </div>
           <div class="industry-card">
             <span class="ind-badge">Automation</span>
-            <h4>Robotics &amp; Mechatronics</h4>
+            <h3>Robotics &amp; Mechatronics</h3>
             <p>Servo drives, planetary gearboxes, actuators, LiDAR modules, and precision machined components.</p>
           </div>
           <div class="industry-card">
             <span class="ind-badge">Clean Energy</span>
-            <h4>Energy &amp; Battery Tech</h4>
-            <p>Prismatic &amp; cylindrical cells, custom BMS modules, thermal management materials, and power electronics.</p>
+            <h3>Energy &amp; Battery Tech</h3>
+            <p>Prismatic &amp; cylindrical cells, drone batteries, custom BMS modules, thermal management materials, and power electronics.</p>
           </div>
         </div>
       </div>
@@ -2352,164 +2888,84 @@
     </div>
     <!-- END LOGISTICS TICKER -->
 
-    <!-- BUYER RFQ (BUYER-FOCUSED) -->
-    <section class="section-gap ecosystem-section" id="rfq">
-      <div class="ring-motif" style="width: 400px; height: 400px; bottom: -160px; right: -120px;" aria-hidden="true"></div>
+    <!-- FAQ SECTION (SEO: visible on-page content matching JSON-LD FAQPage schema) -->
+    <section class="section-gap faq-section" id="faq" aria-label="Frequently asked questions about drone and UAV procurement">
       <div class="wrap">
         <div class="section-headline-center reveal">
           <div class="gold-divider" aria-hidden="true"></div>
-          <h2>For Buyers</h2>
-          <p>Sourcing, verification, procurement, and logistics — handled as your outsourced procurement desk. Send us the requirement and get a transparent, itemized quotation back.</p>
+          <h2>Frequently asked questions</h2>
+          <p>Common questions about sourcing drone components, UAV parts, and industrial hardware through RSQUADZ.</p>
         </div>
-        <div class="eco-container">
-
-          <!-- Buyer RFQ Form -->
-          <div class="eco-tab-box reveal" id="rfq-box">
-            <h3 style="font-size: 1.45rem; margin-bottom: 6px;">Send us the part. We'll send back the plan.</h3>
-            <p style="font-size: 0.88rem; margin-bottom: 24px;">Share your requirement or BOM and get a transparent, itemized landed-cost quotation from verified sources.</p>
-
-            <form id="rfqForm" onsubmit="handleFormSubmit(event, 'Buyer RFQ')">
-              <div class="form-group-grid">
-                <div class="form-control">
-                  <label>Product / Component Name</label>
-                  <input type="text" name="product" placeholder="e.g. 4014 Brushless Motor" required>
-                </div>
-                <div class="form-control">
-                  <label>Part Number / Spec</label>
-                  <input type="text" name="part_number" placeholder="e.g. KV380 Industrial">
-                </div>
-              </div>
-
-              <div class="form-group-grid">
-                <div class="form-control">
-                  <label>Target Quantity</label>
-                  <input type="text" name="quantity" placeholder="e.g. 500 units" required>
-                </div>
-                <div class="form-control">
-                  <label>Delivery Location</label>
-                  <input type="text" name="delivery_location" placeholder="City / Facility Pin" required>
-                </div>
-              </div>
-
-              <div class="form-group-grid">
-                <div class="form-control">
-                  <label>Work Email</label>
-                  <input type="email" name="email" placeholder="name@company.com" required>
-                </div>
-                <div class="form-control">
-                  <label>Phone / WhatsApp</label>
-                  <input type="tel" name="phone" placeholder="+91 93113 60311" required>
-                </div>
-              </div>
-
-              <div class="form-control" style="margin-bottom: 16px;">
-                <label>Target Delivery Date</label>
-                <input type="date" name="target_date">
-              </div>
-
-              <div class="file-dropzone" onclick="document.getElementById('fileUploadInput').click()">
-                <input type="file" id="fileUploadInput" style="display: none;" onchange="updateFileLabel(this)">
-                <div class="dropzone-text" id="dropzoneLabel">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16a2 2 0 0 0 2-2V8a2 2 0 0 0-2-2h-7.9a2 2 0 0 1-1.69-.9L9.6 3.9A2 2 0 0 0 7.93 3H4a2 2 0 0 0-2 2v13a2 2 0 0 0 2 2Z"/></svg>
-                  Click to attach BOM, Technical Drawing, or Datasheet
-                </div>
-                <div class="dropzone-sub">Supports PDF, XLSX, CSV, ZIP (Max 25MB)</div>
-              </div>
-
-              <div class="form-control" style="margin-bottom: 20px;">
-                <label>Technical Details / Instructions</label>
-                <textarea name="details" rows="3" placeholder="Provide tolerances, testing requirements, or preferred brand equivalent..."></textarea>
-              </div>
-
-              <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">
-                Submit Sourcing Requirement
-              </button>
-            </form>
-          </div>
-
-          <!-- Buyer reassurance panel (replaces supplier funnel in buyer section) -->
-          <div class="supplier-box reveal">
-            <div>
-              <span class="hero-tag">What you get back</span>
-              <h3 style="font-size: 1.6rem; margin-top: 14px; margin-bottom: 12px;">A decision, not just a price.</h3>
-              <p style="font-size: 0.92rem; line-height: 1.6;">
-                Every enquiry is worked as a procurement task — evaluated on technical fit, verified supply, and true landed cost before anything is recommended.
-              </p>
-
-              <ul class="supplier-steps-list">
-                <li>
-                  <span class="badge">1</span>
-                  <div><strong>Requirement review:</strong> We read the drawing and BOM, not just the part number.</div>
-                </li>
-                <li>
-                  <span class="badge">2</span>
-                  <div><strong>Verified options:</strong> Multiple evaluated suppliers, each with a verification summary.</div>
-                </li>
-                <li>
-                  <span class="badge">3</span>
-                  <div><strong>Transparent quote:</strong> Product, freight, duties, statutory charges, and our professional fee itemized separately.</div>
-                </li>
-                <li>
-                  <span class="badge">4</span>
-                  <div><strong>Coordinated delivery:</strong> One accountable point of contact from order to dock.</div>
-                </li>
-              </ul>
-            </div>
-
-            <button class="btn-gold" style="width: 100%; justify-content: center;" onclick="openRFQModal()">
-              Request a Quote
-            </button>
-          </div>
-
+        <div class="faq-list reveal-stagger">
+          <details>
+            <summary>How does RSQUADZ source drone components and UAV parts?</summary>
+            <div class="faq-answer">We identify direct manufacturers across key industrial hubs (Shenzhen, Ningbo, Guangzhou), verify them through a six-point check covering company identity, manufacturing capability, product capability, commercial terms, quality and document checks, and logistics readiness. We then compare quotations on true landed cost and deliver door-to-door to your facility in India.</div>
+          </details>
+          <details>
+            <summary>What drone parts can RSQUADZ procure?</summary>
+            <div class="faq-answer">We procure a wide range of drone components including BLDC motors, ESCs, flight controllers, carbon composite frames, drone batteries (prismatic and cylindrical cells, custom BMS modules), drone propellers, RF telemetry modules, optronic payloads, LiDAR modules, and custom wiring harnesses for UAV and commercial drone applications.</div>
+          </details>
+          <details>
+            <summary>Does RSQUADZ verify suppliers before I place an order?</summary>
+            <div class="faq-answer">Yes. Every supplier goes through our documented verification methodology covering six areas: company identity, manufacturing capability, product capability, commercial terms, quality and document checks, and logistics readiness. Each supplier receives a recommendation of Approved, Approved with Conditions, or Not Recommended before any order is placed.</div>
+          </details>
+          <details>
+            <summary>What is included in a landed-cost quotation?</summary>
+            <div class="faq-answer">Our quotation itemizes every charge separately: product cost, freight and insurance, customs duties and statutory charges, third-party expenses, and our clearly identified professional fee. There are no hidden charges — you see the full cost to your dock before committing.</div>
+          </details>
+          <details>
+            <summary>Which industries does RSQUADZ serve?</summary>
+            <div class="faq-answer">We specialize in technical hardware procurement for four industries: Aerospace and Drones (BLDC motors, ESCs, drone propellers, flight controllers), Electronics and Semiconductors (PCBs, microcontrollers, sensors, RF modules), Robotics and Mechatronics (servo drives, actuators, gearboxes), and Energy and Battery Technology (drone batteries, BMS modules, thermal management, power electronics).</div>
+          </details>
+          <details>
+            <summary>How does customs clearance work for imported drone components?</summary>
+            <div class="faq-answer">Customs clearance is coordinated through our verified CHA (Customs House Agent) partners. We handle accurate HS Code classification, documentation preparation, and port clearance coordination so your drone components and industrial hardware clear without delays.</div>
+          </details>
+          <details>
+            <summary>Can RSQUADZ source drone batteries for commercial and industrial UAVs?</summary>
+            <div class="faq-answer">Yes. We procure drone batteries including prismatic and cylindrical lithium cells, custom BMS modules, and complete battery packs for commercial drones and industrial UAV applications. Every battery supplier is verified for quality certifications, UN38.3 compliance applicability, and manufacturing capability before ordering.</div>
+          </details>
+          <details>
+            <summary>How do I source drone propellers and UAV accessories through RSQUADZ?</summary>
+            <div class="faq-answer">Send us your propeller specifications (size, pitch, material, motor compatibility) or a complete BOM. We identify verified manufacturers, compare quotes on true landed cost including freight and customs, and deliver the drone propellers and UAV accessories door-to-door to your facility in India.</div>
+          </details>
+          <details>
+            <summary>Does RSQUADZ handle procurement for commercial drone manufacturers in India?</summary>
+            <div class="faq-answer">Yes. RSQUADZ works as an outsourced procurement desk specifically for Indian commercial drone manufacturers, UAV builders, and industrial hardware OEMs. We handle the full cycle: requirement review, global supplier sourcing, verification, purchase, international freight, customs coordination, and final delivery to your production facility.</div>
+          </details>
+          <details>
+            <summary>What is the typical lead time for importing drone components through RSQUADZ?</summary>
+            <div class="faq-answer">Lead times vary by component and shipping mode. Air freight for drone parts typically takes 7–14 days from factory to your dock; ocean freight for larger orders takes 25–40 days. We provide a clear timeline estimate in every landed-cost quotation before you commit to an order.</div>
+          </details>
         </div>
       </div>
     </section>
 
-    <!-- FOR SUPPLIERS (CLEARLY SEPARATED FROM THE BUYER STORY) -->
-    <section class="section-gap" style="background: var(--navy-900); border-top: 1px solid var(--border-card);" id="suppliers">
+    <!-- GET IN TOUCH — single consolidated buyer/supplier CTA -->
+    <section class="section-gap getintouch-section" id="contact" aria-label="Get in touch — buyer or supplier enquiry">
+      <div class="ring-motif" style="width: 400px; height: 400px; bottom: -160px; right: -120px;" aria-hidden="true"></div>
+      <div class="bg-grid-overlay" aria-hidden="true"></div>
       <div class="wrap">
-        <div class="section-headline-center reveal">
-          <div class="gold-divider" aria-hidden="true"></div>
-          <h2>For Suppliers</h2>
-          <p>A separate track for manufacturers. If you build to spec and can pass verification, apply to join the RSQUADZ supplier network.</p>
-        </div>
-        <div class="eco-container">
-          <div class="eco-tab-box reveal">
-            <h3 style="font-size: 1.45rem; margin-bottom: 6px;">Why suppliers apply.</h3>
-            <p style="font-size: 0.9rem; line-height: 1.6; margin-bottom: 18px;">
-              We connect qualified engineering and manufacturing capability with buyers who verify first — so serious RFQs reach serious suppliers, backed by clear payment terms.
-            </p>
-            <p style="font-size: 0.86rem; color: var(--text-muted);">
-              Applying does not list you automatically. Every applicant goes through the same verification our buyers rely on.
-            </p>
+        <div class="getintouch-inner reveal">
+          <div class="gold-divider" aria-hidden="true" style="margin-left:auto;margin-right:auto;"></div>
+          <h2>Let's get in touch</h2>
+          <p>Whether you're buying components or you manufacture them, one conversation starts it. Tell us which side you're on and we'll take it from there.</p>
+
+          <div class="getintouch-audiences">
+            <span class="aud-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Buying? Get a verified, itemized procurement plan.
+            </span>
+            <span class="aud-pill">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6L9 17l-5-5"/></svg>
+              Supplying? Apply to reach buyers who verify first.
+            </span>
           </div>
 
-          <div class="supplier-box reveal">
-            <div>
-              <span class="hero-tag" style="background: rgba(255,255,255,0.06); color: var(--text-white); border-color: var(--border-card);">Supplier Qualification</span>
-              <h3 style="font-size: 1.6rem; margin-top: 14px; margin-bottom: 12px;">Apply to join the network.</h3>
-              <ul class="supplier-steps-list">
-                <li>
-                  <span class="badge">1</span>
-                  <div><strong>Register Credentials:</strong> Provide legal registration and export certification.</div>
-                </li>
-                <li>
-                  <span class="badge">2</span>
-                  <div><strong>Capability Audit:</strong> Verification of machinery, testing gear, and tolerances.</div>
-                </li>
-                <li>
-                  <span class="badge">3</span>
-                  <div><strong>Qualification:</strong> Verified presentation to relevant corporate buyers.</div>
-                </li>
-                <li>
-                  <span class="badge">4</span>
-                  <div><strong>Direct RFQ Enquiries:</strong> Receive orders backed by clear payment terms.</div>
-                </li>
-              </ul>
-            </div>
-
-            <button class="btn-outline" style="width: 100%; justify-content: center; background: rgba(229,185,59,0.1); border-color: var(--accent-gold); color: var(--accent-gold);" onclick="openSupplierModal()">
-              Apply for Supplier Verification
+          <div class="getintouch-cta">
+            <button class="btn-gold" onclick="openContactModal()">
+              <span>Get in Touch</span>
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
             </button>
           </div>
         </div>
@@ -2527,15 +2983,15 @@
 
         <div class="pillars-grid reveal-stagger">
           <div class="pillar-card">
-            <h4>Technical Procurement Expertise</h4>
+            <h3>Technical Procurement Expertise</h3>
             <p>We read engineering drawings, understand tolerances, and scrutinize BOM components instead of forwarding catalog numbers blindly.</p>
           </div>
           <div class="pillar-card">
-            <h4>Verified Supplier Network</h4>
+            <h3>Verified Supplier Network</h3>
             <p>Pre-screened manufacturing partners evaluated for commercial integrity, capacity, and strict quality conformance.</p>
           </div>
           <div class="pillar-card">
-            <h4>Transparent Commercials</h4>
+            <h3>Transparent Commercials</h3>
             <p>A transparent, itemized quotation: product cost, freight, duties, statutory charges, third-party expenses, and our clearly identified professional fee — each shown as a separate line.</p>
           </div>
         </div>
@@ -2550,7 +3006,10 @@
             <div class="hero-tag">About RSquadz</div>
             <h2 style="font-size: 2.3rem; margin-bottom: 20px;">We took the friction out of importing.</h2>
             <p style="margin-bottom: 18px; font-size: 1.02rem;">
-              RSQUADZ acts as your outsourced procurement desk — finding, verifying, and managing suppliers on your behalf, with transparent commercial evaluation and coordinated delivery. We are not a marketplace and not a broker.
+              RSQUADZ acts as your outsourced procurement desk — finding, verifying, and managing suppliers of drone components, UAV parts, and industrial hardware on your behalf, with transparent commercial evaluation and coordinated delivery. We are not a marketplace and not a broker.
+            </p>
+            <p style="margin-bottom: 18px; font-size: 0.95rem;">
+              Founded by procurement and logistics professionals with hands-on experience sourcing drone components, UAV subsystems, and precision electronics across Asia's manufacturing hubs, RSQUADZ LLP is registered in Faridabad, Haryana. Our team understands BOM-level technical requirements — from drone batteries and propellers to flight controllers and custom PCBs — because we've sourced them ourselves before building a company around it.
             </p>
             <p style="font-size: 0.95rem;">
               Instead of leaving you to juggle brokers, shipping agents, and opaque marketplaces, we fold supplier discovery, systematic verification, compliance applicability review, and door-to-door coordination into a single accountable workflow — and show exactly what you are paying for.
@@ -2586,27 +3045,27 @@
             <span class="brand-wordmark"><b>RSQUAD<span class="wm-z">Z</span></b></span>
           </div>
           <p style="font-size: 0.86rem; max-width: 34ch; margin-bottom: 16px;">
-            Your outsourced procurement desk for drones, electronics, robotics, energy/battery, and industrial hardware buyers.
+            Your outsourced procurement desk for drone components, UAV parts, electronics, robotics, energy/battery, and industrial hardware buyers.
           </p>
-          <p style="font-size: 0.8rem; color: var(--text-muted); line-height: 1.7;">
+          <address style="font-style: normal; font-size: 0.8rem; color: var(--text-muted); line-height: 1.7;">
             RSQUADZ LLP<br>
             <!-- LLPIN: [LLPIN — add once confirmed]<br> -->
             <!-- GSTIN: [GSTIN — add once confirmed]<br> -->
             Registered office: 38/1, Shastri Colony, Sector 19, Faridabad, Haryana (121002)
-          </p>
+          </address>
         </div>
 
-        <div class="footer-col">
+        <nav class="footer-col" aria-label="Solutions navigation">
           <h5>Solutions</h5>
           <ul>
-            <li><a href="#solutions">Global Sourcing</a></li>
-            <li><a href="#solutions">Supplier Verification</a></li>
-            <li><a href="#solutions">Door-to-Door Delivery</a></li>
-            <li><a href="#solutions">Logistics &amp; Customs</a></li>
+            <li><a href="#solutions">Global Sourcing &amp; Procurement</a></li>
+            <li><a href="#proof">Supplier Verification Process</a></li>
+            <li><a href="#process">9-Step Delivery Workflow</a></li>
+            <li><a href="#faq">Drone Procurement FAQ</a></li>
           </ul>
-        </div>
+        </nav>
 
-        <div class="footer-col">
+        <nav class="footer-col" aria-label="Industries navigation">
           <h5>Industries</h5>
           <ul>
             <li><a href="#industries">Aerospace &amp; Drones</a></li>
@@ -2614,15 +3073,15 @@
             <li><a href="#industries">Robotics &amp; Automation</a></li>
             <li><a href="#industries">Energy &amp; Battery Systems</a></li>
           </ul>
-        </div>
+        </nav>
 
         <div class="footer-col">
           <h5>Direct Contact</h5>
           <ul>
             <li><a href="mailto:rsquadzimpex@gmail.com">rsquadzimpex@gmail.com</a></li>
             <li><a href="tel:+919311360311">+91 93113 60311</a></li>
-            <li><a href="#rfq-box" style="color: var(--accent-gold);">Submit Buyer RFQ &rarr;</a></li>
-            <li><a href="javascript:void(0)" onclick="openSupplierModal()">Join Supplier Network &rarr;</a></li>
+            <li><a href="javascript:void(0)" onclick="openContactModal('Buyer')" style="color: var(--accent-gold);">Buyer enquiry &rarr;</a></li>
+            <li><a href="javascript:void(0)" onclick="openContactModal('Supplier')">Supplier application &rarr;</a></li>
           </ul>
         </div>
       </div>
@@ -2643,19 +3102,36 @@
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Zm0 18.02h-.01a8.23 8.23 0 0 1-4.19-1.15l-.3-.18-3.11.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.35c0-4.54 3.7-8.24 8.25-8.24 2.2 0 4.27.86 5.83 2.42a8.19 8.19 0 0 1 2.41 5.83c0 4.54-3.7 8.24-8.25 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.81-.79.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43.13-.14.17-.25.25-.41.08-.17.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.17 0-.43.06-.66.31-.22.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.68-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29Z"/></svg>
   </a>
 
-  <!-- MODAL: REQUEST A QUOTE -->
-  <div class="modal-overlay" id="quoteModal">
+  <!-- MODAL: UNIFIED GET IN TOUCH (Buyer / Supplier) -->
+  <div class="modal-overlay" id="contactModal">
     <div class="modal-card">
-      <button class="modal-close" onclick="closeRFQModal()" aria-label="Close dialog">
+      <button class="modal-close" onclick="closeContactModal()" aria-label="Close dialog">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
       </button>
-      <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Request a Custom Procurement Quote</h3>
-      <p style="font-size: 0.88rem; margin-bottom: 24px;">Our engineering and sourcing specialists respond within 24 business hours.</p>
+      <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Get in touch</h3>
+      <p style="font-size: 0.88rem; margin-bottom: 22px;">Tell us who you are — we usually respond within one business day.</p>
 
-      <form onsubmit="handleFormSubmit(event, 'Modal RFQ')">
+      <form id="contactForm" onsubmit="handleContactSubmit(event)">
+        <!-- Role selector -->
+        <span class="role-label">You are a</span>
+        <div class="role-toggle" role="tablist" aria-label="Select whether you are a buyer or supplier">
+          <button type="button" class="role-opt active" data-role="Buyer" onclick="setRole('Buyer')" aria-pressed="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+            Buyer
+            <small>I want to source / buy</small>
+          </button>
+          <button type="button" class="role-opt" data-role="Supplier" onclick="setRole('Supplier')" aria-pressed="false">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><path d="M3 9l2.45-4.9A2 2 0 0 1 7.24 3h9.52a2 2 0 0 1 1.79 1.1L21 9"/><path d="M12 3v6"/></svg>
+            Supplier
+            <small>I manufacture / supply</small>
+          </button>
+        </div>
+        <input type="hidden" name="role" id="roleField" value="Buyer">
+
+        <!-- Common: name + contact -->
         <div class="form-control" style="margin-bottom: 14px;">
-          <label>Your Name &amp; Designation</label>
-          <input type="text" name="name" placeholder="Rajan Gaur — Sourcing Head" required>
+          <label>Your Name &amp; Company</label>
+          <input type="text" name="name" placeholder="Rajan Gaur — AeroDrone Robotics" required>
         </div>
         <div class="form-group-grid">
           <div class="form-control">
@@ -2667,58 +3143,52 @@
             <input type="tel" name="phone" placeholder="+91 93113 60311" required>
           </div>
         </div>
-        <div class="form-control" style="margin-bottom: 14px;">
-          <label>Components / Scope</label>
-          <textarea name="details" rows="3" placeholder="Provide part details, estimated quantities, and target timelines..." required></textarea>
-        </div>
-        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">Send Requirement</button>
-      </form>
-    </div>
-  </div>
 
-  <!-- MODAL: SUPPLIER ONBOARDING -->
-  <div class="modal-overlay" id="supplierModal">
-    <div class="modal-card">
-      <button class="modal-close" onclick="closeSupplierModal()" aria-label="Close dialog">
-        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-      <h3 style="font-size: 1.4rem; margin-bottom: 8px;">Apply to Join Verified RSquadz Supplier Network</h3>
-      <p style="font-size: 0.88rem; margin-bottom: 24px;">Access qualified enterprise orders from industrial buyers across India.</p>
+        <!-- BUYER fields -->
+        <div class="role-fields active" id="buyerFields">
+          <div class="form-group-grid">
+            <div class="form-control">
+              <label>Product / Component</label>
+              <input type="text" name="product" placeholder="e.g. 4014 Brushless Motor">
+            </div>
+            <div class="form-control">
+              <label>Target Quantity</label>
+              <input type="text" name="quantity" placeholder="e.g. 500 units">
+            </div>
+          </div>
+          <div class="form-control" style="margin: 14px 0;">
+            <label>Requirement / BOM details</label>
+            <textarea name="details" rows="3" placeholder="Part numbers, tolerances, delivery location & timeline. You can email a BOM/drawing after this too."></textarea>
+          </div>
+        </div>
 
-      <form onsubmit="handleFormSubmit(event, 'Supplier Application')">
-        <div class="form-control" style="margin-bottom: 14px;">
-          <label>Manufacturer / Company Name</label>
-          <input type="text" name="company" placeholder="e.g. Shenzhen Precision Dynamics Ltd." required>
-        </div>
-        <div class="form-group-grid">
-          <div class="form-control">
-            <label>Factory City &amp; Country</label>
-            <input type="text" name="location" placeholder="Shenzhen, China" required>
+        <!-- SUPPLIER fields -->
+        <div class="role-fields" id="supplierFields">
+          <div class="form-group-grid">
+            <div class="form-control">
+              <label>Factory City &amp; Country</label>
+              <input type="text" name="location" placeholder="Shenzhen, China">
+            </div>
+            <div class="form-control">
+              <label>Primary Product Category</label>
+              <select name="category">
+                <option value="">Select Category...</option>
+                <option value="UAV / Drone Hardware">UAV / Drone Hardware</option>
+                <option value="PCBs & Semiconductors">PCBs &amp; Semiconductors</option>
+                <option value="Robotics & Motors">Robotics &amp; Motors</option>
+                <option value="Battery Cells / Packs">Battery Cells / Packs</option>
+                <option value="Precision Tooling">Precision Tooling</option>
+              </select>
+            </div>
           </div>
-          <div class="form-control">
-            <label>Primary Product Category</label>
-            <select name="category" required>
-              <option value="">Select Category...</option>
-              <option value="UAV / Drone Hardware">UAV / Drone Hardware</option>
-              <option value="PCBs & Semiconductors">PCBs &amp; Semiconductors</option>
-              <option value="Robotics & Motors">Robotics &amp; Motors</option>
-              <option value="Battery Cells / Packs">Battery Cells / Packs</option>
-              <option value="Precision Tooling">Precision Tooling</option>
-            </select>
-          </div>
-        </div>
-        <div class="form-group-grid">
-          <div class="form-control">
-            <label>Business Email</label>
-            <input type="email" name="email" placeholder="export@supplier.com" required>
-          </div>
-          <div class="form-control">
+          <div class="form-control" style="margin: 14px 0;">
             <label>Website URL</label>
-            <input type="url" name="website" placeholder="https://..." required>
+            <input type="url" name="website" placeholder="https://...">
           </div>
         </div>
-        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; margin-top: 10px;">
-          Submit Application for Audit
+
+        <button type="submit" class="btn-gold" style="width: 100%; justify-content: center; margin-top: 6px;">
+          <span id="contactSubmitLabel">Send My Requirement</span>
         </button>
       </form>
     </div>
@@ -2733,87 +3203,85 @@
 
     // Google Sheets endpoint (Apps Script Web App URL).
     // Deploy the Apps Script (see setup notes) and paste its /exec URL here.
-    const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbygAHHZt3zGhIR4wYMYs7BrfUaTYXUwv3vB2QG8XOgKlHFuC2ZY6lpSirFsdCuLKn-G/exec";
+    const SHEET_ENDPOINT = "https://script.google.com/macros/s/AKfycbx7yWAeMf3KmBzp9z65U9Qg2CDu2xDADyJw6PnN0Hk3H4ZRgkPCorzcQNbEiftbqAc/exec";
 
     // Respect user's motion preference for all JS-driven animation
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Modal Controllers
-    function openRFQModal() {
-      document.getElementById('quoteModal').classList.add('active');
+    // Unified contact modal controller
+    function openContactModal(role) {
+      if (role) setRole(role);
+      document.getElementById('contactModal').classList.add('active');
     }
-    function closeRFQModal() {
-      document.getElementById('quoteModal').classList.remove('active');
+    function closeContactModal() {
+      document.getElementById('contactModal').classList.remove('active');
     }
-    function openSupplierModal() {
-      document.getElementById('supplierModal').classList.add('active');
-    }
-    function closeSupplierModal() {
-      document.getElementById('supplierModal').classList.remove('active');
+    // Backward-compatible aliases (any lingering calls still open the one modal)
+    function openRFQModal() { openContactModal('Buyer'); }
+    function openSupplierModal() { openContactModal('Supplier'); }
+
+    // Buyer / Supplier role toggle
+    function setRole(role) {
+      const roleField = document.getElementById('roleField');
+      if (roleField) roleField.value = role;
+      document.querySelectorAll('.role-opt').forEach(btn => {
+        const active = btn.getAttribute('data-role') === role;
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+      });
+      const buyer = document.getElementById('buyerFields');
+      const supplier = document.getElementById('supplierFields');
+      if (buyer) buyer.classList.toggle('active', role === 'Buyer');
+      if (supplier) supplier.classList.toggle('active', role === 'Supplier');
+      const label = document.getElementById('contactSubmitLabel');
+      if (label) label.textContent = role === 'Supplier' ? 'Submit Supplier Application' : 'Send My Requirement';
     }
 
     // Close modal on escape or background click
     window.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        closeRFQModal();
-        closeSupplierModal();
-      }
+      if (e.key === 'Escape') closeContactModal();
     });
     document.querySelectorAll('.modal-overlay').forEach(modal => {
       modal.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('active');
-        }
+        if (e.target === modal) modal.classList.remove('active');
       });
     });
 
-    // File Dropzone simulator
-    function updateFileLabel(input) {
-      if (input.files && input.files[0]) {
-        document.getElementById('dropzoneLabel').textContent = "Selected: " + input.files[0].name;
-      }
-    }
-
     // Form Handling — posts the enquiry to a Google Sheet via Apps Script.
-    async function handleFormSubmit(e, formName) {
+    async function handleContactSubmit(e) {
       e.preventDefault();
       const form = e.target;
       const submitBtn = form.querySelector('button[type="submit"]');
-      const originalBtnText = submitBtn ? submitBtn.textContent : '';
+      const labelEl = document.getElementById('contactSubmitLabel');
+      const originalLabel = labelEl ? labelEl.textContent : '';
+      const role = (document.getElementById('roleField') || {}).value || 'Buyer';
 
       // Gather all named fields plus useful metadata.
-      const data = { form_type: formName, submitted_at: new Date().toISOString(), page: location.href };
-      new FormData(form).forEach((value, key) => { data[key] = value; });
+      const data = { form_type: role + ' Enquiry', role: role, submitted_at: new Date().toISOString(), page: location.href };
+      new FormData(form).forEach((value, key) => { if (value) data[key] = value; });
 
-      // If the endpoint hasn't been configured yet, fall back to the old confirmation
-      // so the site still works while you set up the Sheet.
+      // Fallback if the endpoint isn't configured yet.
       if (!SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf('PASTE_YOUR') === 0) {
-        alert(`Thank you. Your ${formName} has been received by the RSquadz Procurement Desk. A coordinator will contact you shortly.`);
-        form.reset();
-        closeRFQModal();
-        closeSupplierModal();
+        alert('Thank you. Your enquiry has been received by the RSQUADZ desk. A coordinator will contact you shortly.');
+        form.reset(); setRole('Buyer'); closeContactModal();
         return;
       }
 
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+      if (submitBtn) { submitBtn.disabled = true; if (labelEl) labelEl.textContent = 'Sending—'; }
 
       try {
-        // 'no-cors' lets a static page post to Apps Script without a CORS pre-flight.
-        // The response is opaque, so we treat a completed request as success.
         await fetch(SHEET_ENDPOINT, {
           method: 'POST',
           mode: 'no-cors',
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(data)
         });
-        alert(`Thank you. Your ${formName} has been received by the RSquadz Procurement Desk. A coordinator will contact you shortly.`);
-        form.reset();
-        closeRFQModal();
-        closeSupplierModal();
+        alert('Thank you. Your enquiry has been received by the RSQUADZ desk. A coordinator will contact you shortly.');
+        form.reset(); setRole('Buyer'); closeContactModal();
       } catch (err) {
-        alert('Sorry — something went wrong sending your enquiry. Please email rsquadzimpex@gmail.com or call +91 78349 98131.');
+        alert('Sorry — something went wrong sending your enquiry. Please email rsquadzimpex@gmail.com or call +91 93113 60311.');
       } finally {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = originalBtnText; }
+        if (submitBtn) { submitBtn.disabled = false; if (labelEl) labelEl.textContent = originalLabel; }
       }
     }
 
@@ -2913,7 +3381,7 @@
       for (let r = 0; r < repeats; r++) {
         sequence.forEach(v => { half += '<span class="logi-vehicle v-' + v + '">' + vehicles[v] + '</span>'; });
       }
-      // Two identical halves → animating to -50% loops seamlessly.
+      // Two identical halves ? animating to -50% loops seamlessly.
       lane.innerHTML = half + half;
     })();
 
@@ -3014,48 +3482,7 @@
       revealEls.forEach(el => io.observe(el));
     })();
 
-    // --- Count-up stat strip (one-time, latched) ---
-    (function setupCountUp() {
-      const strip = document.getElementById('statStrip');
-      if (!strip) return;
-      const counts = strip.querySelectorAll('.stat-count');
-
-      function setFinal() {
-        counts.forEach(el => { el.textContent = el.getAttribute('data-target'); });
-      }
-
-      if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-        setFinal();
-        return;
-      }
-
-      let hasRun = false;
-      function animate(el) {
-        const target = parseInt(el.getAttribute('data-target'), 10) || 0;
-        const duration = 1100;
-        const start = performance.now();
-        function tick(now) {
-          const p = Math.min((now - start) / duration, 1);
-          // ease-out
-          const eased = 1 - Math.pow(1 - p, 3);
-          el.textContent = Math.round(eased * target).toString();
-          if (p < 1) requestAnimationFrame(tick);
-          else el.textContent = target.toString();
-        }
-        requestAnimationFrame(tick);
-      }
-
-      const io = new IntersectionObserver((entries, obs) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting && !hasRun) {
-            hasRun = true; // latch: run once
-            counts.forEach(animate);
-            obs.disconnect();
-          }
-        });
-      }, { threshold: 0.4 });
-      io.observe(strip);
-    })();
+    // (Stat strip now uses factual capability statements — no count-up animation needed.)
 
     // --- Header scroll state + floating button visibility (rAF-throttled) ---
     (function setupScrollState() {
