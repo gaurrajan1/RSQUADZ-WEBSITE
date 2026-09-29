@@ -1703,6 +1703,61 @@
     .role-fields { display: none; }
     .role-fields.active { display: block; animation: modalIn 0.25s cubic-bezier(0.16,1,0.3,1); }
 
+    /* Form success state — replaces the form content with a checkmark + message */
+    .form-success {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 36px 20px;
+      gap: 18px;
+      animation: modalIn 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .form-success.active { display: flex; }
+    .success-circle {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--accent-gold-subtle);
+      border: 2px solid var(--gold-vivid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: successPop 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.1s both;
+    }
+    .success-circle svg {
+      width: 36px;
+      height: 36px;
+      stroke: var(--gold-vivid);
+      stroke-width: 3;
+      fill: none;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      stroke-dasharray: 50;
+      stroke-dashoffset: 50;
+      animation: successDraw 0.5s ease 0.35s forwards;
+    }
+    .success-title {
+      font-family: var(--font-display);
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--heading-color);
+    }
+    .success-sub {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      line-height: 1.55;
+      max-width: 34ch;
+    }
+    @keyframes successPop {
+      from { transform: scale(0.6); opacity: 0; }
+      to   { transform: scale(1); opacity: 1; }
+    }
+    @keyframes successDraw {
+      to { stroke-dashoffset: 0; }
+    }
+
     /* Scroll reveal */
     .reveal {
       opacity: 0;
@@ -2357,18 +2412,6 @@
   <div class="glow-orb" style="width: 500px; height: 500px; background: rgba(229,185,59,0.07); top: 5%; left: -100px;" aria-hidden="true"></div>
   <div class="glow-orb" style="width: 600px; height: 600px; background: rgba(56,189,248,0.06); top: 35%; right: -150px;" aria-hidden="true"></div>
 
-  <!-- Trust Strip -->
-  <div class="trust-strip">
-    <div class="wrap">
-      <div>Your Outsourced Procurement Desk for Technical Hardware</div>
-      <div class="trust-strip-items">
-        <span>Supplier Verification</span>
-        <span>Global Sourcing</span>
-        <span>Door-to-Door Coordination</span>
-        <span>Customs via CHA Partners</span>
-      </div>
-    </div>
-  </div>
 
   <!-- Header / Navigation -->
   <header id="siteNav">
@@ -2384,13 +2427,10 @@
       </a>
 
       <nav class="desktop-menu" id="primaryMenu">
-        <a href="#technical">For Buyers</a>
-        <a href="#solutions">Solutions</a>
         <a href="#process">How It Works</a>
-        <a href="#proof">Proof</a>
         <a href="#industries">Industries</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#faq">FAQ</a>
       </nav>
 
       <div class="nav-actions">
@@ -3131,16 +3171,16 @@
         <!-- Common: name + contact -->
         <div class="form-control" style="margin-bottom: 14px;">
           <label>Your Name &amp; Company</label>
-          <input type="text" name="name" placeholder="Rajan Gaur — AeroDrone Robotics" required>
+          <input type="text" name="name" placeholder="Please type your name and company" required>
         </div>
         <div class="form-group-grid">
           <div class="form-control">
             <label>Work Email</label>
-            <input type="email" name="email" placeholder="name@company.com" required>
+            <input type="email" name="email" placeholder="Please type your work email address" required>
           </div>
           <div class="form-control">
             <label>Phone / WhatsApp</label>
-            <input type="tel" name="phone" placeholder="+91 93113 60311" required>
+            <input type="tel" name="phone" placeholder="Please type your phone or WhatsApp number" required>
           </div>
         </div>
 
@@ -3149,16 +3189,16 @@
           <div class="form-group-grid">
             <div class="form-control">
               <label>Product / Component</label>
-              <input type="text" name="product" placeholder="e.g. 4014 Brushless Motor">
+              <input type="text" name="product" placeholder="Please type the product or component name">
             </div>
             <div class="form-control">
               <label>Target Quantity</label>
-              <input type="text" name="quantity" placeholder="e.g. 500 units">
+              <input type="text" name="quantity" placeholder="Please type your target quantity">
             </div>
           </div>
           <div class="form-control" style="margin: 14px 0;">
             <label>Requirement / BOM details</label>
-            <textarea name="details" rows="3" placeholder="Part numbers, tolerances, delivery location & timeline. You can email a BOM/drawing after this too."></textarea>
+            <textarea name="details" rows="3" placeholder="Please describe your requirement — part numbers, tolerances, delivery location, and timeline"></textarea>
           </div>
         </div>
 
@@ -3167,12 +3207,12 @@
           <div class="form-group-grid">
             <div class="form-control">
               <label>Factory City &amp; Country</label>
-              <input type="text" name="location" placeholder="Shenzhen, China">
+              <input type="text" name="location" placeholder="Please type your factory city and country">
             </div>
             <div class="form-control">
               <label>Primary Product Category</label>
               <select name="category">
-                <option value="">Select Category...</option>
+                <option value="">Please select a category...</option>
                 <option value="UAV / Drone Hardware">UAV / Drone Hardware</option>
                 <option value="PCBs & Semiconductors">PCBs &amp; Semiconductors</option>
                 <option value="Robotics & Motors">Robotics &amp; Motors</option>
@@ -3183,7 +3223,7 @@
           </div>
           <div class="form-control" style="margin: 14px 0;">
             <label>Website URL</label>
-            <input type="url" name="website" placeholder="https://...">
+            <input type="url" name="website" placeholder="Please type your website URL">
           </div>
         </div>
 
@@ -3191,6 +3231,15 @@
           <span id="contactSubmitLabel">Send My Requirement</span>
         </button>
       </form>
+
+      <!-- Success state (shown after submission, replaces form visually) -->
+      <div class="form-success" id="contactSuccess">
+        <div class="success-circle">
+          <svg viewBox="0 0 24 24"><path d="M4 12l5 5L20 7"/></svg>
+        </div>
+        <div class="success-title">We've got your enquiry</div>
+        <div class="success-sub">A member of our procurement team will contact you shortly. This window will close automatically.</div>
+      </div>
     </div>
   </div>
 
@@ -3248,6 +3297,24 @@
     });
 
     // Form Handling — posts the enquiry to a Google Sheet via Apps Script.
+    // On success: shows an animated checkmark inside the modal, then auto-closes.
+    function showFormSuccess() {
+      const form = document.getElementById('contactForm');
+      const success = document.getElementById('contactSuccess');
+      if (form) form.style.display = 'none';
+      if (success) success.classList.add('active');
+      // Auto-close the modal after 2.5s and reset everything
+      setTimeout(function () {
+        closeContactModal();
+        // Reset after the close animation finishes
+        setTimeout(function () {
+          if (form) { form.style.display = ''; form.reset(); }
+          if (success) success.classList.remove('active');
+          setRole('Buyer');
+        }, 350);
+      }, 2500);
+    }
+
     async function handleContactSubmit(e) {
       e.preventDefault();
       const form = e.target;
@@ -3262,12 +3329,11 @@
 
       // Fallback if the endpoint isn't configured yet.
       if (!SHEET_ENDPOINT || SHEET_ENDPOINT.indexOf('PASTE_YOUR') === 0) {
-        alert('Thank you. Your enquiry has been received by the RSQUADZ desk. A coordinator will contact you shortly.');
-        form.reset(); setRole('Buyer'); closeContactModal();
+        showFormSuccess();
         return;
       }
 
-      if (submitBtn) { submitBtn.disabled = true; if (labelEl) labelEl.textContent = 'Sending—'; }
+      if (submitBtn) { submitBtn.disabled = true; if (labelEl) labelEl.textContent = 'Sending…'; }
 
       try {
         await fetch(SHEET_ENDPOINT, {
@@ -3276,12 +3342,13 @@
           headers: { 'Content-Type': 'text/plain;charset=utf-8' },
           body: JSON.stringify(data)
         });
-        alert('Thank you. Your enquiry has been received by the RSQUADZ desk. A coordinator will contact you shortly.');
-        form.reset(); setRole('Buyer'); closeContactModal();
+        showFormSuccess();
       } catch (err) {
-        alert('Sorry — something went wrong sending your enquiry. Please email rsquadzimpex@gmail.com or call +91 93113 60311.');
+        // On error, show inline message instead of alert
+        if (labelEl) labelEl.textContent = 'Error — please email rsquadzimpex@gmail.com';
+        setTimeout(function () { if (labelEl) labelEl.textContent = originalLabel; }, 4000);
       } finally {
-        if (submitBtn) { submitBtn.disabled = false; if (labelEl) labelEl.textContent = originalLabel; }
+        if (submitBtn) { submitBtn.disabled = false; }
       }
     }
 
