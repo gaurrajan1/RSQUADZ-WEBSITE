@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en-IN">
+<html lang="en-IN" data-theme="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +9,8 @@
   <meta name="description" content="Guides, comparisons, and procurement insights for drone builders, FPV pilots, and hardware teams in India. Covering drone blog India, FPV gear guide, import drone components India.">
   <meta name="keywords" content="drone blog India, FPV gear guide, import drone components India, drone procurement, FPV controller comparison, drone parts import guide">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-
-  <!-- Canonical -->
   <link rel="canonical" href="https://rsquadz.com/blog/">
 
-  <!-- OpenGraph -->
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="RSQUADZ LLP">
   <meta property="og:title" content="RSQUADZ Blog — Drone Procurement Guides, FPV Gear Reviews &amp; Import Tips">
@@ -21,38 +18,56 @@
   <meta property="og:url" content="https://rsquadz.com/blog/">
   <meta property="og:image" content="https://rsquadz.com/og-image.jpg">
   <meta property="og:locale" content="en_IN">
-
-  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="RSQUADZ Blog — Drone Procurement Guides, FPV Gear Reviews &amp; Import Tips">
-  <meta name="twitter:description" content="Guides, comparisons, and procurement insights for drone builders, FPV pilots, and hardware teams in India.">
+  <meta name="twitter:title" content="RSQUADZ Blog — Drone Procurement Guides &amp; FPV Reviews">
+  <meta name="twitter:description" content="Guides, comparisons, and procurement insights for drone builders and FPV pilots in India.">
   <meta name="twitter:image" content="https://rsquadz.com/og-image.jpg">
 
-  <!-- Favicon (matches main site) -->
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✈</text></svg>" type="image/svg+xml">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⬡</text></svg>" type="image/svg+xml">
 
-  <!-- Fonts: Plus Jakarta Sans + Space Grotesk (same as main site) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    /* ===== RESET & BASE ===== */
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  <!-- Blog listing structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "RSQUADZ Blog",
+    "url": "https://rsquadz.com/blog/",
+    "description": "Guides, comparisons, and procurement insights for drone builders, FPV pilots, and hardware teams in India.",
+    "publisher": { "@type": "Organization", "name": "RSQUADZ LLP", "url": "https://rsquadz.com" },
+    "blogPost": [
+      { "@type": "BlogPosting", "headline": "Radiomaster Boxer vs TX16S Mark II — Which FPV Controller Should Indian Drone Builders Choose?", "url": "https://rsquadz.com/blog/radiomaster-boxer-vs-tx16s.html", "datePublished": "2026-09-28" },
+      { "@type": "BlogPosting", "headline": "How to Import Drone Components to India — A Complete Guide", "url": "https://rsquadz.com/blog/import-drone-components-india.html", "datePublished": "2026-09-28" },
+      { "@type": "BlogPosting", "headline": "CADDX Walksnail Avatar HD vs DJI O3 — Which Digital FPV System Should You Choose in India?", "url": "https://rsquadz.com/blog/caddx-walksnail-vs-dji-o3.html", "datePublished": "2026-09-28" }
+    ]
+  }
+  </script>
 
+  <style>
     :root {
-      --bg-base: #F6F7FB;
-      --bg-card: #FFFFFF;
-      --border-card: rgba(23, 32, 56, 0.10);
-      --accent-gold: #A46A00;
-      --accent-gold-hover: #8A5900;
-      --gold-vivid: #F5B518;
-      --accent-indigo: #3D52D5;
-      --accent-teal: #0E7C86;
-      --text-primary: #1F2637;
-      --text-secondary: #4E576B;
-      --text-muted: #79839A;
-      --heading-color: #141A28;
+      --bg-base: #0A0D1A;
+      --bg-surface: #131A2E;
+      --bg-card: rgba(26, 35, 60, 0.72);
+      --border-card: rgba(148, 176, 232, 0.12);
+      --navy-900: #0A0F1E;
+      --navy-800: #111829;
+      --navy-700: #1A2338;
+      --navy-600: #24304C;
+      --accent-gold: #E7BC46;
+      --accent-gold-hover: #F5CE63;
+      --accent-gold-subtle: rgba(231, 188, 70, 0.14);
+      --gold-vivid: #F5C542;
+      --accent-indigo: #6C8CFF;
+      --accent-indigo-subtle: rgba(108, 140, 255, 0.14);
+      --accent-cyan: #4FD1E0;
+      --accent-teal-subtle: rgba(79, 209, 224, 0.14);
+      --text-white: #F7FAFF;
+      --text-primary: #E7ECF6;
+      --text-secondary: #A3B0C9;
+      --text-muted: #6B7896;
       --font-display: 'Space Grotesk', -apple-system, sans-serif;
       --font-body: 'Plus Jakarta Sans', -apple-system, sans-serif;
       --radius-sm: 6px;
@@ -61,340 +76,248 @@
       --radius-pill: 9999px;
       --max-w: 1120px;
       --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      --header-bg: rgba(13, 18, 33, 0.88);
+      --header-bg-scrolled: rgba(10, 15, 30, 0.96);
+      --surface-alpha: rgba(148, 176, 232, 0.05);
+      --heading-color: #F7FAFF;
+      --shadow-strong: rgba(0, 0, 0, 0.55);
+      --card-grad: linear-gradient(180deg, rgba(26,35,60,0.85) 0%, rgba(17,24,41,0.95) 100%);
+      --band-grad: linear-gradient(180deg, var(--navy-900) 0%, var(--bg-base) 100%);
     }
 
-    html { scroll-behavior: smooth; }
+    [data-theme="light"] {
+      --bg-base: #F6F7FB;
+      --bg-surface: #FFFFFF;
+      --bg-card: #FFFFFF;
+      --border-card: rgba(23, 32, 56, 0.12);
+      --navy-900: #EDF0F7;
+      --navy-800: #FFFFFF;
+      --navy-700: #F4F6FB;
+      --navy-600: #E7ECF6;
+      --accent-gold: #A46A00;
+      --accent-gold-hover: #8A5900;
+      --accent-gold-subtle: rgba(245, 181, 24, 0.18);
+      --gold-vivid: #F5B518;
+      --accent-indigo: #3D52D5;
+      --accent-indigo-subtle: rgba(61, 82, 213, 0.10);
+      --accent-cyan: #0E7C86;
+      --accent-teal-subtle: rgba(14, 124, 134, 0.10);
+      --text-white: #141A28;
+      --text-primary: #1F2637;
+      --text-secondary: #4E576B;
+      --text-muted: #79839A;
+      --heading-color: #141A28;
+      --header-bg: rgba(246, 247, 251, 0.82);
+      --header-bg-scrolled: rgba(255, 255, 255, 0.95);
+      --surface-alpha: rgba(23, 32, 56, 0.04);
+      --shadow-strong: rgba(23, 32, 56, 0.16);
+      --card-grad: linear-gradient(180deg, #FFFFFF 0%, #F6F8FD 100%);
+      --band-grad: linear-gradient(180deg, #FFFDF8 0%, #EEF1F9 100%);
+    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; overflow-x: hidden; }
+    html.theme-switching, html.theme-switching * { transition: none !important; }
     body {
-      font-family: var(--font-body);
-      background: var(--bg-base);
+      background-color: var(--bg-base);
       color: var(--text-primary);
+      font-family: var(--font-body);
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
+      transition: background-color 0.2s ease, color 0.2s ease;
     }
-
     a { color: inherit; text-decoration: none; }
-    img { max-width: 100%; display: block; }
+    .wrap { max-width: var(--max-w); margin: 0 auto; padding: 0 24px; }
+    h1, h2, h3, h4 { font-family: var(--font-display); color: var(--heading-color); font-weight: 700; line-height: 1.18; }
 
-    .wrap {
-      max-width: var(--max-w);
-      margin: 0 auto;
-      padding: 0 24px;
-    }
-
-    /* ===== HEADER (sticky) ===== */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(255, 255, 255, 0.92);
+    /* ===== Header (matches homepage) ===== */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--header-bg);
       backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid var(--border-card);
       transition: var(--transition);
     }
-
-    .header-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      height: 64px;
+    header.scrolled { background: var(--header-bg-scrolled); box-shadow: 0 8px 30px var(--shadow-strong); border-bottom-color: rgba(229,185,59,0.18); }
+    .nav-inner { display: flex; align-items: center; justify-content: space-between; height: 76px; }
+    .brand-logo { display: flex; align-items: center; gap: 11px; font-family: var(--font-display); font-size: 1.35rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text-white); }
+    .brand-mark { width: 34px; height: 34px; flex-shrink: 0; display: block; transition: transform 0.35s cubic-bezier(0.16,1,0.3,1); }
+    .brand-logo:hover .brand-mark { transform: rotate(-8deg) scale(1.06); }
+    .brand-mark .mark-hex { fill: none; stroke: var(--gold-vivid); stroke-width: 5; }
+    .brand-mark .mark-hex-fill { fill: var(--accent-gold-subtle); }
+    .brand-mark .mark-r { fill: var(--heading-color); }
+    .brand-mark .mark-check { fill: none; stroke: var(--gold-vivid); stroke-width: 6; stroke-linecap: round; stroke-linejoin: round; }
+    .brand-wordmark b { font-weight: 800; }
+    .brand-wordmark .wm-z { color: var(--gold-vivid); }
+    nav.desktop-menu { display: flex; align-items: center; gap: 32px; }
+    nav.desktop-menu a { font-size: 0.92rem; font-weight: 500; color: var(--text-secondary); position: relative; transition: var(--transition); }
+    nav.desktop-menu a::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0; height: 2px; background: var(--gold-vivid); transition: width 0.25s cubic-bezier(0.16,1,0.3,1); }
+    nav.desktop-menu a:hover { color: var(--text-white); }
+    nav.desktop-menu a:hover::after { width: 100%; }
+    .nav-actions { display: flex; align-items: center; gap: 16px; }
+    .theme-toggle { width: 42px; height: 42px; border-radius: var(--radius-pill); background: var(--surface-alpha); border: 1px solid var(--border-card); color: var(--text-primary); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: var(--transition); }
+    .theme-toggle:hover { border-color: rgba(229,185,59,0.5); color: var(--accent-gold); transform: translateY(-2px); }
+    .theme-toggle .icon-sun { display: none; }
+    .theme-toggle .icon-moon { display: block; }
+    [data-theme="light"] .theme-toggle .icon-sun { display: block; }
+    [data-theme="light"] .theme-toggle .icon-moon { display: none; }
+    .btn-gold {
+      background: linear-gradient(135deg, var(--gold-vivid) 0%, #D99B12 100%);
+      color: #2A1E00; font-weight: 700; font-size: 0.9rem; padding: 11px 22px; border-radius: var(--radius-sm);
+      display: inline-flex; align-items: center; gap: 9px; border: none; cursor: pointer;
+      box-shadow: 0 4px 20px rgba(229,185,59,0.28); transition: var(--transition);
     }
+    [data-theme="light"] .btn-gold { background: linear-gradient(135deg, #FFC531 0%, #FF8A2B 100%); color: #3A1E00; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 6px 26px rgba(229,185,59,0.42); }
 
-    .brand {
-      font-family: var(--font-display);
-      font-size: 1.35rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--heading-color);
-      transition: color 0.2s;
-    }
-    .brand:hover { color: var(--accent-gold); }
+    /* ===== Hero ===== */
+    .blog-hero { padding: 80px 0 48px; text-align: center; position: relative; background: var(--band-grad); border-bottom: 1px solid var(--border-card); }
+    .gold-divider { width: 64px; height: 3px; border-radius: var(--radius-pill); background: linear-gradient(90deg, transparent, var(--gold-vivid), var(--accent-cyan), var(--gold-vivid), transparent); margin: 0 auto 22px; }
+    .blog-hero h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: -0.03em; margin-bottom: 16px; }
+    .blog-hero p { max-width: 640px; margin: 0 auto; font-size: 1.1rem; color: var(--text-secondary); }
 
-    .header-nav {
-      display: flex;
-      align-items: center;
-      gap: 28px;
-      list-style: none;
-    }
-
-    .header-nav a {
-      font-size: 0.9rem;
-      font-weight: 600;
-      color: var(--text-secondary);
-      transition: color 0.2s;
-      position: relative;
-    }
-    .header-nav a::after {
-      content: '';
-      position: absolute;
-      bottom: -4px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--gold-vivid);
-      border-radius: 1px;
-      transition: width 0.25s ease;
-    }
-    .header-nav a:hover { color: var(--heading-color); }
-    .header-nav a:hover::after { width: 100%; }
-
-    /* ===== HERO ===== */
-    .hero {
-      padding: 72px 0 56px;
-      text-align: center;
-    }
-
-    .hero h1 {
-      font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 700;
-      letter-spacing: -0.03em;
-      color: var(--heading-color);
-      margin-bottom: 16px;
-    }
-
-    .hero p {
-      max-width: 640px;
-      margin: 0 auto;
-      font-size: 1.1rem;
-      color: var(--text-secondary);
-      line-height: 1.75;
-    }
-
-    /* ===== BLOG GRID ===== */
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 28px;
-      padding-bottom: 80px;
-    }
-
-    /* ===== CARD ===== */
+    /* ===== Blog grid ===== */
+    .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 28px; padding: 56px 0 90px; }
     .blog-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border-card);
-      border-radius: var(--radius-lg);
-      padding: 32px 28px 28px;
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
-      transition: var(--transition);
-      position: relative;
+      background: var(--bg-surface); border: 1px solid var(--border-card); border-radius: var(--radius-lg);
+      padding: 32px 28px 28px; display: flex; flex-direction: column; gap: 16px; position: relative; transition: var(--transition);
     }
-    .blog-card:hover {
-      box-shadow: 0 16px 40px rgba(23, 32, 56, 0.10), 0 0 0 1px rgba(191, 138, 20, 0.14);
-      transform: translateY(-3px);
-    }
+    .blog-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px var(--shadow-strong), 0 0 0 1px rgba(229,185,59,0.14); border-color: rgba(229,185,59,0.3); }
+    .card-meta { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+    .tag-pill { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; padding: 4px 12px; border-radius: var(--radius-pill); }
+    .tag-pill--fpv { background: var(--accent-teal-subtle); color: var(--accent-cyan); }
+    .tag-pill--procurement { background: var(--accent-indigo-subtle); color: var(--accent-indigo); }
+    .card-date { font-size: 0.82rem; color: var(--text-muted); font-weight: 500; }
+    .blog-card h2 { font-size: 1.15rem; font-weight: 700; letter-spacing: -0.02em; line-height: 1.4; color: var(--heading-color); }
+    .card-excerpt { font-size: 0.92rem; color: var(--text-secondary); line-height: 1.65; }
+    .card-link { margin-top: auto; font-size: 0.88rem; font-weight: 700; color: var(--accent-gold); display: inline-flex; align-items: center; gap: 6px; transition: gap 0.2s; }
+    .card-link:hover { gap: 10px; }
+    .card-link-overlay { position: absolute; inset: 0; z-index: 1; }
 
-    .card-meta {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .tag-pill {
-      display: inline-block;
-      font-size: 0.72rem;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: var(--radius-pill);
-    }
-    .tag-pill--fpv {
-      background: rgba(14, 124, 134, 0.10);
-      color: var(--accent-teal);
-    }
-    .tag-pill--procurement {
-      background: rgba(61, 82, 213, 0.10);
-      color: var(--accent-indigo);
-    }
-
-    .card-date {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      font-weight: 500;
-    }
-
-    .blog-card h3 {
-      font-family: var(--font-display);
-      font-size: 1.15rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--heading-color);
-      line-height: 1.4;
-    }
-
-    .card-excerpt {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      display: -webkit-box;
-      -webkit-line-clamp: 2;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-
-    .card-link {
-      margin-top: auto;
-      font-size: 0.88rem;
-      font-weight: 600;
-      color: var(--accent-gold);
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      transition: color 0.2s, gap 0.2s;
-    }
-    .card-link:hover {
-      color: var(--accent-gold-hover);
-      gap: 10px;
-    }
-    .card-link-overlay {
-      position: absolute;
-      inset: 0;
-      z-index: 1;
-    }
-
-    /* ===== FOOTER ===== */
-    .site-footer {
-      background: #FFFFFF;
-      border-top: 1px solid var(--border-card);
-      padding: 36px 0;
-    }
-
-    .footer-inner {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-copy {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-    }
-
-    .footer-links {
-      display: flex;
-      align-items: center;
-      gap: 24px;
-      list-style: none;
-    }
-    .footer-links a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--text-secondary);
-      transition: color 0.2s;
-    }
+    /* ===== Footer ===== */
+    footer { background: var(--navy-900); border-top: 1px solid var(--border-card); padding: 36px 0; }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+    .footer-copy { font-size: 0.82rem; color: var(--text-muted); }
+    .footer-links { display: flex; gap: 24px; list-style: none; }
+    .footer-links a { font-size: 0.82rem; font-weight: 500; color: var(--text-secondary); transition: color 0.2s; }
     .footer-links a:hover { color: var(--accent-gold); }
 
-    /* ===== RESPONSIVE ===== */
     @media (max-width: 720px) {
-      .hero { padding: 52px 0 40px; }
-      .hero p { font-size: 1rem; }
-      .blog-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-      .blog-card { padding: 24px 20px 22px; }
-      .header-inner { height: 56px; }
-      .footer-inner {
-        flex-direction: column;
-        text-align: center;
-      }
+      nav.desktop-menu { display: none; }
+      .blog-hero { padding: 56px 0 40px; }
+      .blog-grid { grid-template-columns: 1fr; gap: 20px; padding: 40px 0 64px; }
+      .footer-inner { flex-direction: column; text-align: center; }
     }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition-duration: 0.001ms !important; } }
   </style>
 </head>
 <body>
 
-  <!-- ===== HEADER ===== -->
-  <header class="site-header" role="banner">
-    <div class="wrap header-inner">
-      <a href="../index.html" class="brand" aria-label="RSQUADZ home">RSQUADZ</a>
-      <nav aria-label="Main navigation">
-        <ul class="header-nav">
-          <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#products">Products</a></li>
-        </ul>
+  <header id="siteNav">
+    <div class="wrap nav-inner">
+      <a href="../index.html" class="brand-logo" aria-label="RSQUADZ home">
+        <svg class="brand-mark" viewBox="0 0 100 100" width="34" height="34" role="img" aria-hidden="true">
+          <polygon class="mark-hex-fill" points="50,6 88,28 88,72 50,94 12,72 12,28"/>
+          <polygon class="mark-hex" points="50,6 88,28 88,72 50,94 12,72 12,28" stroke-linejoin="round"/>
+          <path class="mark-r" d="M34 28 h20 a15 15 0 0 1 0 30 h-6 l16 16 h-13 L36 61 v-6 h16 a7 7 0 0 0 0-14 H42 v33 h-8 Z"/>
+          <path class="mark-check" d="M60 30 l7 7 l13 -14"/>
+        </svg>
+        <span class="brand-wordmark"><b>RSQUAD<span class="wm-z">Z</span></b></span>
+      </a>
+      <nav class="desktop-menu">
+        <a href="../index.html">Home</a>
+        <a href="../index.html#industries">Industries</a>
+        <a href="../radiomaster-caddx.html">Radiomaster &amp; CADDX</a>
+        <a href="../index.html#faq">FAQ</a>
       </nav>
+      <div class="nav-actions">
+        <button class="theme-toggle" id="themeToggle" type="button" aria-label="Switch between light and dark theme" title="Toggle theme">
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+        <a href="../index.html#contact" class="btn-gold">Get in Touch</a>
+      </div>
     </div>
   </header>
 
   <main>
-    <!-- ===== HERO ===== -->
-    <section class="hero">
+    <section class="blog-hero">
       <div class="wrap">
+        <div class="gold-divider" aria-hidden="true"></div>
         <h1>RSQUADZ Blog</h1>
         <p>Guides, comparisons, and procurement insights for drone builders, FPV pilots, and hardware teams in India.</p>
       </div>
     </section>
 
-    <!-- ===== BLOG GRID ===== -->
     <section class="wrap" aria-label="Blog articles">
       <div class="blog-grid">
 
-        <!-- Card 1 -->
         <article class="blog-card">
           <div class="card-meta">
             <span class="tag-pill tag-pill--fpv">FPV Gear</span>
             <time class="card-date" datetime="2026-09">September 2026</time>
           </div>
-          <h3>Radiomaster Boxer vs TX16S — Which FPV Controller for Indian Drone Builders?</h3>
+          <h2>Radiomaster Boxer vs TX16S — Which FPV Controller for Indian Drone Builders?</h2>
           <p class="card-excerpt">Choosing between Radiomaster's two most popular transmitters? We compare the Boxer and TX16S Mark II on features, ergonomics, and value for Indian FPV pilots.</p>
-          <a href="radiomaster-boxer-vs-tx16s.html" class="card-link" aria-label="Read article: Radiomaster Boxer vs TX16S">
-            Read article <span aria-hidden="true">→</span>
-            <span class="card-link-overlay"></span>
-          </a>
+          <a href="radiomaster-boxer-vs-tx16s.html" class="card-link">Read article <span aria-hidden="true">→</span><span class="card-link-overlay"></span></a>
         </article>
 
-        <!-- Card 2 -->
         <article class="blog-card">
           <div class="card-meta">
             <span class="tag-pill tag-pill--procurement">Procurement</span>
             <time class="card-date" datetime="2026-09">September 2026</time>
           </div>
-          <h3>How to Import Drone Components to India — A Complete Guide</h3>
+          <h2>How to Import Drone Components to India — A Complete Guide</h2>
           <p class="card-excerpt">A step-by-step guide to importing drone parts, UAV components, and FPV gear into India — covering HS codes, customs duties, CHA coordination, and landed-cost calculation.</p>
-          <a href="import-drone-components-india.html" class="card-link" aria-label="Read article: How to Import Drone Components to India">
-            Read article <span aria-hidden="true">→</span>
-            <span class="card-link-overlay"></span>
-          </a>
+          <a href="import-drone-components-india.html" class="card-link">Read article <span aria-hidden="true">→</span><span class="card-link-overlay"></span></a>
         </article>
 
-        <!-- Card 3 -->
         <article class="blog-card">
           <div class="card-meta">
             <span class="tag-pill tag-pill--fpv">FPV Gear</span>
             <time class="card-date" datetime="2026-09">September 2026</time>
           </div>
-          <h3>CADDX Walksnail Avatar HD vs DJI O3 — FPV System Comparison</h3>
+          <h2>CADDX Walksnail Avatar HD vs DJI O3 — FPV System Comparison</h2>
           <p class="card-excerpt">Two leading digital FPV systems head-to-head. We compare the CADDX Walksnail Avatar HD and DJI O3 on video quality, latency, ecosystem, and availability in India.</p>
-          <a href="caddx-walksnail-vs-dji-o3.html" class="card-link" aria-label="Read article: CADDX Walksnail Avatar HD vs DJI O3">
-            Read article <span aria-hidden="true">→</span>
-            <span class="card-link-overlay"></span>
-          </a>
+          <a href="caddx-walksnail-vs-dji-o3.html" class="card-link">Read article <span aria-hidden="true">→</span><span class="card-link-overlay"></span></a>
         </article>
 
       </div>
     </section>
   </main>
 
-  <!-- ===== FOOTER ===== -->
-  <footer class="site-footer" role="contentinfo">
+  <footer>
     <div class="wrap footer-inner">
-      <p class="footer-copy">&copy; 2025 RSQUADZ LLP. All rights reserved.</p>
+      <p class="footer-copy">&copy; 2026 RSQUADZ LLP. All rights reserved.</p>
       <nav aria-label="Footer navigation">
         <ul class="footer-links">
           <li><a href="../index.html">Home</a></li>
-          <li><a href="../index.html#products">Products</a></li>
+          <li><a href="../radiomaster-caddx.html">Radiomaster &amp; CADDX</a></li>
           <li><a href="../privacy.html">Privacy</a></li>
         </ul>
       </nav>
     </div>
   </footer>
+
+  <script>
+    // Theme toggle — shared behavior with homepage (localStorage + View Transitions)
+    (function () {
+      try { document.documentElement.setAttribute('data-theme', localStorage.getItem('rsquadz-theme') === 'dark' ? 'dark' : 'light'); } catch (e) {}
+      const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const btn = document.getElementById('themeToggle');
+      const root = document.documentElement;
+      function swap(t) { root.setAttribute('data-theme', t); try { localStorage.setItem('rsquadz-theme', t); } catch (e) {} }
+      function apply(t) {
+        if (document.startViewTransition && !prefersReduced) { document.startViewTransition(function () { swap(t); }); return; }
+        root.classList.add('theme-switching'); swap(t);
+        requestAnimationFrame(function () { requestAnimationFrame(function () { root.classList.remove('theme-switching'); }); });
+      }
+      if (btn) btn.addEventListener('click', function () { apply(root.getAttribute('data-theme') === 'light' ? 'dark' : 'light'); });
+      // Header scroll state
+      const header = document.getElementById('siteNav');
+      window.addEventListener('scroll', function () { if (header) header.classList.toggle('scrolled', (window.scrollY || 0) > 40); }, { passive: true });
+    })();
+  </script>
 
 </body>
 </html>
